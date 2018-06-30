@@ -1,5 +1,5 @@
 const initialState ={
-    testSaga:{
+    champions:{
         message: "Hello World"
     }
 };

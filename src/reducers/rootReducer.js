@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import testSagaReducer from './testSagaReducer';
+import championsReducer from './championsReducer';
 
 const rootReducer = combineReducers({
-    testSaga: testSagaReducer
+    champions:championsReducer
 });
 
 export default rootReducer;

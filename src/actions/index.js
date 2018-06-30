@@ -1,1 +1,1 @@
-export * from './testSagaActions';
+export * from './championsActions';
