@@ -14,3 +14,6 @@ I used redux for single source of truth and managing states since state manageme
 I used redux-saga middleware for async operations instead of thunk since it uses callback.
 I used material ui 1.3 for react ui components since it is stable and used to do.
 I used create-react-app for template project since it is easy to configure. (Webpack, express, babel, etc)
+
+Regarging to requirements;
+I've developed a single page application that presents a list that shows the F1 world champions starting from 2005 until 2015 in descending order. When you click on an item on the list, it shows the list of the winners for every race for the selected year and also highlight the row when the winner has been the world champion in the same season.
