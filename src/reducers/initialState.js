@@ -1,6 +1,9 @@
 const initialState ={
     champions:{
-        message: "Hello World"
+        isLoaded: false,
+        popupChampionsByYearOpen: false,
+        listByYear:[],
+        list:[]
     }
 };
 

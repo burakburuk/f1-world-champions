@@ -1,12 +1,8 @@
 const API_ROOT = 'http://ergast.com/api/f1';
 
 // Fetches an API response and returns a promise
-function callApi(endpoint,pagination) {
+function callApi(endpoint, pagination) {
     let fullUrl = (endpoint.indexOf(API_ROOT) === -1) ? API_ROOT + endpoint : endpoint;
-
-    if(pagination){
-        fullUrl = paginationBuilder(fullUrl, pagination);
-    }
 
     return fetch(fullUrl)
         .then(response =>
@@ -24,15 +20,13 @@ function callApi(endpoint,pagination) {
         )
 }
 
-// add pagination to url
-function paginationBuilder(url, pagination) {
-    if(pagination){
-        url += "?";
-        url += pagination.limit ? "limit=" + pagination.limit + "&" : "";
-        url += pagination.offset ? "offset=" + pagination.offset : "";
-    }
-    return url;
-}
-
 // api services
 export const fetchAllChampions = (pagination) => callApi(`.json`,pagination);
+export const fetchChampionByYear = (year) => {
+    if(!year){
+        throw new Error("Year parameter must be specified!");
+    }
+    return callApi('/' + year + '/last/results.json');
+};
+
+export const fetchAllChampionsByYear = (year) => callApi('/' + year + '/results/1.json');
