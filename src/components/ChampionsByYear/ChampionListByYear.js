@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ChampionItemByYear from './ChampionItemByYear';
-import ChampionItemSkeleton from '../../skeletons/ChampionItemSkeleton';
+import generateGuid from '../../utils/guid';
 
 const styles = theme => ({
     root: {
@@ -17,24 +17,27 @@ const styles = theme => ({
 
 class ChampionListByYear extends Component {
     render() {
-        const {classes, listByYear} = this.props;
-        let loadedChampions = listByYear.length;
-        let itemList = listByYear.map(item => {
-            const _winner = item.Results[0].Driver;
-            const _constructor = item.Results[0].Constructor;
-            console.log(item);
+        const {classes, listByYear, numberOfChampionsInSeason, selectedDriverId} = this.props;
+        let itemList = [];
+        for (let i = 0; i < numberOfChampionsInSeason; i++) {
+            if (listByYear[i]) {
+                const _winner = listByYear[i].Results[0];
+                const driverId = _winner.Driver.driverId;
+                const driverName = _winner.Driver.givenName + " " + _winner.Driver.familyName;
+                const team = _winner.Constructor.name;
+                const season = listByYear[i].season;
+                const date = listByYear[i].date;
+                const raceName = listByYear[i].raceName;
 
-            return <ChampionItemByYear key={_winner.givenName + new Date().getTime() + Math.random()}
-                                       name={_winner.givenName}
-                                       surname={_winner.familyName} year={item.season}
-                                       date={item.date}
-                                       company={_constructor.name}
-                                       race={item.raceName}
-            ></ChampionItemByYear>
-        });
-
-        for (let i = loadedChampions; i < 11; i++) {
-            itemList.push(<ChampionItemSkeleton key={new Date().getTime() + Math.random()}/>);
+                itemList.push(<ChampionItemByYear key={generateGuid()} name={driverName}
+                                                  year={season} date={date} company={team}
+                                                  highlight={selectedDriverId === driverId}
+                                                  race={raceName}
+                ></ChampionItemByYear>);
+            }else{
+                itemList.push(<ChampionItemByYear key={generateGuid()}
+                ></ChampionItemByYear>);
+            }
         }
 
         return (
@@ -52,7 +55,9 @@ ChampionListByYear.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-    listByYear: state.champions.listByYear
+    listByYear: state.champions.listByYear,
+    numberOfChampionsInSeason: state.champions.numberOfChampionsInSeason,
+    selectedDriverId: state.champions.selectedDriverId
 })
 
 const mapDispatchToProps = (dispatch) => ({})

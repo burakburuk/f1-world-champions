@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import {closeChampionsByYearPopup} from '../../actions';
+import {withStyles} from '@material-ui/core/styles';
+import {closeChampionsByYearPopup, requestNumberOfChampionsInSeason} from '../../actions';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -12,36 +12,40 @@ import ChampionListByYear from './ChampionListByYear';
 
 const styles = theme => ({
     root: {
-        width: '100%',
-        maxWidth: 800,
-        marginLeft:'auto',
-        marginRight:'auto',
+        width: 600,
+        height: 600,
+        marginLeft: 'auto',
+        marginRight: 'auto',
     },
 });
 
 class ChampionByYearPopup extends Component {
+    componentDidMount() {
+        this.props.requestNumberOfChampionsInSeason();
+    }
 
-    render(){
-        const {popupChampionsByYearOpen} = this.props;
+    render() {
+        const {classes, popupChampionsByYearOpen, selectedYear} = this.props;
         return (
-            <Dialog
-                open={popupChampionsByYearOpen}
-                keepMounted
-                onClose={this.handleClose}
-                aria-labelledby="alert-dialog-slide-title"
-                aria-describedby="alert-dialog-slide-description">
-                <DialogTitle id="alert-dialog-slide-title">
-                    {"Champion List in a season"}
-                </DialogTitle>
-                <DialogContent>
-                    <ChampionListByYear/>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={(e) => this.props.closeChampionsByYearPopup(e)} color="primary">
-                        Close
-                    </Button>
-                </DialogActions>
-            </Dialog>
+            <div className={classes.root}>
+                <Dialog
+                    open={popupChampionsByYearOpen}
+                    keepMounted
+                    fullWidth
+                    onClose={this.handleClose}>
+                    <DialogTitle id="alert-dialog-slide-title">
+                        {"Champions of " + selectedYear}
+                    </DialogTitle>
+                    <DialogContent>
+                        <ChampionListByYear/>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={(e) => this.props.closeChampionsByYearPopup(e)} color="primary">
+                            Close
+                        </Button>
+                    </DialogActions>
+                </Dialog>
+            </div>
         );
     }
 }
@@ -51,10 +55,12 @@ ChampionByYearPopup.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-    popupChampionsByYearOpen: state.champions.popupChampionsByYearOpen
+    popupChampionsByYearOpen: state.champions.popupChampionsByYearOpen,
+    selectedYear: state.champions.selectedYear
 })
 
 const mapDispatchToProps = (dispatch) => ({
+    requestNumberOfChampionsInSeason: (e) => dispatch(requestNumberOfChampionsInSeason(e)),
     closeChampionsByYearPopup: (e) => dispatch(closeChampionsByYearPopup(e))
 })
 

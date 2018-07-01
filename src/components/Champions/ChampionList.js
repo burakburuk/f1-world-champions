@@ -1,44 +1,48 @@
 import React, {Component} from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
-import {requestAllChampions} from '../../actions/index';
+import {requestAllChampions, requestNumberOfWorldChampions} from '../../actions/index';
 import ChampionItem from './ChampionItem';
-import ChampionItemSkeleton from '../../skeletons/ChampionItemSkeleton';
+import generateGuid from '../../utils/guid';
 import ChampionsByYearPopup from '../ChampionsByYear/ChampionsByYearPopup';
 
 const styles = theme => ({
     root: {
         width: '100%',
         maxWidth: 800,
-        marginLeft:'auto',
-        marginRight:'auto',
+        marginLeft: 'auto',
+        marginRight: 'auto',
     },
 });
 
 class ChampionList extends Component {
-    componentDidMount(){
-        this.props.requestAllChampions(2005,2015);
+    componentDidMount() {
+        this.props.requestNumberOfChampions();
+        this.props.requestAllChampions(2005, 2015);
     }
 
-    render(){
-        const { classes,champions } = this.props;
-        let loadedChampions = champions.list.length;
-        let itemList = champions.list.map(item => {
-            const _winner = item.winner.Driver;
-            console.log(item);
 
-            return <ChampionItem key={_winner.givenName + new Date().getTime() + Math.random()} name={_winner.givenName}
-                                 surname={_winner.familyName} year={item.season}
-                                 nationality = {item.winner.Driver.nationality}
-                                 company = {item.winner.Constructor.name}
-                                 points = {item.winner.points}
-            ></ChampionItem>
-        });
+    render() {
+        const {classes, champions} = this.props;
+        let itemList = [];
+        for (let i = 0; i < champions.numberOfWorldChampions; i++) {
+            if (champions.list[i]) {
+                const _winner = champions.list[i].winner;
+                const driverName = _winner.Driver.givenName + " " + _winner.Driver.familyName;
+                const driverId = _winner.Driver.driverId;
+                const nationality = _winner.Driver.nationality;
+                const team = _winner.Constructor.name;
+                const points = champions.list[i].points;
+                const season = champions.list[i].season;
 
-        for(let i = loadedChampions; i < 11; i++){
-            itemList.push(<ChampionItemSkeleton key={new Date().getTime() + Math.random()}/>);
+                itemList.push(<ChampionItem key={generateGuid()} name={driverName} year={season}
+                                            nationality={nationality} company={team} points={points} driverId={driverId}
+                ></ChampionItem>);
+            } else {
+                itemList.push(<ChampionItem key={generateGuid()}/>);
+            }
         }
 
         return (
@@ -55,14 +59,15 @@ class ChampionList extends Component {
 ChampionList.propTypes = {
     champions: PropTypes.object.isRequired,
     requestAllChampions: PropTypes.func.isRequired
-}
+};
 
 const mapStateToProps = (state) => ({
     champions: state.champions
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    requestAllChampions: (start,end) => dispatch(requestAllChampions(start,end))
+    requestAllChampions: (start, end) => dispatch(requestAllChampions(start, end)),
+    requestNumberOfChampions: () => dispatch(requestNumberOfWorldChampions()),
 })
 
 export default connect(

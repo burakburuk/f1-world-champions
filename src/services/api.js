@@ -26,7 +26,7 @@ export const fetchChampionByYear = (year) => {
     if(!year){
         throw new Error("Year parameter must be specified!");
     }
-    return callApi('/' + year + '/last/results.json');
+    return callApi('/' + year + '/results.json?limit=1000&offset=0');
 };
 
 export const fetchAllChampionsByYear = (year) => callApi('/' + year + '/results/1.json');
