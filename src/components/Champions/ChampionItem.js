@@ -6,7 +6,19 @@ import {openChampionsByYearPopup} from '../../actions/index';
 import ListItem from '@material-ui/core/ListItem';
 import Grid from '@material-ui/core/Grid';
 import Skeleton from 'react-loading-skeleton';
+import teamCar1 from '../../assets/img/teamCar1.jpg';
+import teamCar2 from '../../assets/img/teamCar2.jpg';
 import teamCar3 from '../../assets/img/teamCar3.jpg';
+import teamCar4 from '../../assets/img/teamCar4.jpg';
+import teamCar5 from '../../assets/img/teamCar5.jpg';
+
+const carImages = {
+    "MERCEDES": teamCar2,
+    "RENAULT": teamCar1,
+    "MCLAREN": teamCar4,
+    "FERRARI": teamCar3,
+    "DEFAULT": teamCar5
+};
 
 const styles = theme => ({
     root: {
@@ -51,7 +63,9 @@ class ChampionItem extends Component {
                     </Grid>
                     <Grid item xs={3}>
                         <div className="item-image">
-                            {company ? <img alt="no_image" src={teamCar3}/> : <Skeleton/>}
+                            {company ?
+                                <img alt="no_image" src={carImages[company.toUpperCase()] || carImages["DEFAULT"]}/> :
+                                <Skeleton/>}
 
                         </div>
                     </Grid>

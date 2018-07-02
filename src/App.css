@@ -22,6 +22,20 @@
     font-size: large;
 }
 
+.app-bar{
+    width: 100%;
+    height: 80px;
+    background: #e00;
+    color:white;
+    vertical-align: middle;
+}
+
+.app-bar img{
+    width: 120px;
+    margin-left: 18px;
+    margin-top: 25px;
+}
+
 @keyframes App-logo-spin {
     from {
         transform: rotate(0deg);
