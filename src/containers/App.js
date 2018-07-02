@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Provider} from 'react-redux'
-import ChampionCard from '../components/Champions/ChampionList';
+import WorldChampions from './WorldChampions';
 import '../App.css';
 import Bar from "./Bar";
 
@@ -12,7 +12,7 @@ class App extends Component {
             <Provider store={store}>
                 <div>
                     <Bar/>
-                    <ChampionCard></ChampionCard>
+                    <WorldChampions></WorldChampions>
                 </div>
             </Provider>
         );

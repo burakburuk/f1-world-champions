@@ -22,15 +22,15 @@
     font-size: large;
 }
 
-.app-bar{
+.app-bar {
     width: 100%;
     height: 80px;
     background: #e00;
-    color:white;
+    color: white;
     vertical-align: middle;
 }
 
-.app-bar img{
+.app-bar img {
     width: 120px;
     margin-left: 18px;
     margin-top: 25px;
@@ -45,13 +45,37 @@
     }
 }
 
+.list-header {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #4c4c4c;
+}
+
+.list-header-driver {
+    width: 33%;
+    padding-left: 80px;
+}
+
+.list-header-nationality {
+    width: 18%;
+}
+
+.list-header-team {
+    width: 33%;
+}
+
+.list-header-points {
+
+}
+
 .ch-item {
     color: gray;
     text-align: center;
     padding-top: 2px;
 }
 
-.by-item{
+.by-item {
     color: gray;
 }
 
@@ -97,7 +121,7 @@
     padding-top: 0;
 }
 
-.item-race{
+.item-race {
     font-size: 18px;
 }
 
