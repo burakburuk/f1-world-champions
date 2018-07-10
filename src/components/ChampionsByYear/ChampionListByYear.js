@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ChampionItemByYear from './ChampionItemByYear';
-import generateGuid from '../../utils/guid';
+import objectHash from 'object-hash';
 
 const styles = theme => ({
     root: {
@@ -29,13 +29,13 @@ class ChampionListByYear extends Component {
                 const date = listByYear[i].date;
                 const raceName = listByYear[i].raceName;
 
-                itemList.push(<ChampionItemByYear key={generateGuid()} name={driverName}
+                itemList.push(<ChampionItemByYear key={objectHash(listByYear[i])} name={driverName}
                                                   year={season} date={date} company={team}
                                                   highlight={selectedDriverId === driverId}
                                                   race={raceName}
                 ></ChampionItemByYear>);
-            }else{
-                itemList.push(<ChampionItemByYear key={generateGuid()}
+            } else {
+                itemList.push(<ChampionItemByYear key={`ChampionItemByYear-${i}`}
                 ></ChampionItemByYear>);
             }
         }
@@ -52,13 +52,13 @@ class ChampionListByYear extends Component {
 
 ChampionListByYear.propTypes = {
     listByYear: PropTypes.array.isRequired,
-}
+};
 
 const mapStateToProps = (state) => ({
     listByYear: state.champions.listByYear,
     numberOfChampionsInSeason: state.champions.numberOfChampionsInSeason,
     selectedDriverId: state.champions.selectedDriverId
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({})
 

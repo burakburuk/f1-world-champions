@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
@@ -54,11 +53,4 @@ ChampionItemByYear.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (state) => ({})
-
-const mapDispatchToProps = (dispatch) => ({})
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(withStyles(styles)(ChampionItemByYear))
+export default withStyles(styles)(ChampionItemByYear);

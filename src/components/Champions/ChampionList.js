@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
-import {requestAllChampions, requestNumberOfWorldChampions} from '../../actions/index';
+import {requestAllChampions, requestNumberOfWorldChampions, openChampionsByYearPopup} from '../../actions';
 import ChampionItem from './ChampionItem';
-import generateGuid from '../../utils/guid';
+import objectHash from 'object-hash';
 import ChampionsByYearPopup from '../ChampionsByYear/ChampionsByYearPopup';
 
 const styles = theme => ({
@@ -25,7 +25,7 @@ class ChampionList extends Component {
 
 
     render() {
-        const {classes, champions} = this.props;
+        const {classes, champions, openChampionsByYearPopup} = this.props;
         let itemList = [];
         for (let i = 0; i < champions.numberOfWorldChampions; i++) {
             if (champions.list[i]) {
@@ -37,11 +37,12 @@ class ChampionList extends Component {
                 const points = champions.list[i].points;
                 const season = champions.list[i].season;
 
-                itemList.push(<ChampionItem key={generateGuid()} name={driverName} year={season}
+                itemList.push(<ChampionItem key={objectHash(champions.list[i])} name={driverName} year={season}
                                             nationality={nationality} company={team} points={points} driverId={driverId}
+                                            openChampionsByYearPopup={openChampionsByYearPopup}
                 ></ChampionItem>);
             } else {
-                itemList.push(<ChampionItem key={generateGuid()}/>);
+                itemList.push(<ChampionItem key={`ChampionItem-${i}`}/>);
             }
         }
 
@@ -63,12 +64,13 @@ ChampionList.propTypes = {
 
 const mapStateToProps = (state) => ({
     champions: state.champions
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({
     requestAllChampions: (start, end) => dispatch(requestAllChampions(start, end)),
     requestNumberOfChampions: () => dispatch(requestNumberOfWorldChampions()),
-})
+    openChampionsByYearPopup: (year, driverId) => dispatch(openChampionsByYearPopup(year, driverId)),
+});
 
 export default connect(
     mapStateToProps,
