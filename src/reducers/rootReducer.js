@@ -1,8 +1,10 @@
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 import championsReducer from './championsReducer';
+import worldChampionsReducer from './worldChampionsReducer';
 
 const rootReducer = combineReducers({
-    champions:championsReducer
+    champions: championsReducer,
+    worldChampions: worldChampionsReducer,
 });
 
 export default rootReducer;

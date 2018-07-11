@@ -1,11 +1,11 @@
-import {takeEvery, call, put} from "redux-saga/effects";
+import {takeEvery, call, put, fork, take} from "redux-saga/effects";
 import * as actionTypes from "../constants";
 import {fetchChampionByYear, fetchAllChampionsByYear} from '../services';
 import {
-    completeChampionRequest,
     startAllChampionsRequest,
     completeAllChampionByYearRequest,
-    completeNumberOfChampionsInSeason
+    completeNumberOfChampionsInSeason,
+    fetchChampComplete
 } from '../actions';
 
 /******************************************************************************/
@@ -47,28 +47,33 @@ function* requestAllChampionsByYear(action) {
     }
 }
 
+function* fetchChamp(year) {
+    const {response, error} = yield call(() => fetchChampionByYear(year));
+    if (error) {
+        console.warn("Error while fetching Champ" + error)
+    } else {
+        if (response.MRData) {
+            let champion = findWorldChampionFromList(response.MRData.RaceTable.Races, year);
+            yield put(fetchChampComplete(champion, year));
+        } else {
+            console.warn("response.MRData is not defined!!");
+        }
+    }
+}
+
 // loads all champions
 function* requestWorldChampionsByDateRange(action) {
     try {
-        let result = [];
-        if (action.start && action.end) {
-            for (let i = action.end; i >= action.start; i--) {
-                const {response, error} = yield call(() => fetchChampionByYear(i));
-                if (error) {
-                    result.push({error});
-                } else {
-                    if (response.MRData) {
-                        let champion = findWorldChampionFromList(response.MRData.RaceTable.Races, i);
-                        result.push(champion);
-                        yield put(completeChampionRequest(champion));
-                    }
-                }
+        let tasks = [];
+        if (action.startYear && action.endYear) {
+            for (let i = action.endYear; i >= action.startYear; i--) {
+                tasks[i] = yield fork(fetchChamp, i);
             }
         } else {
             throw new Error("Start and End parameters must be defined!");
         }
+        yield take(actionTypes.COMPLETE_ALL_CHAMPIONS_REQUEST);
 
-        //yield put(completeAllChampionsRequest(result));
     } catch (error) {
         console.warn(error.message);
     }
@@ -88,7 +93,7 @@ function findWorldChampionFromList(list, season) {
                     winner: _races[j]
                 });
             }
-            _drivers.get(_id).points += parseInt(_point);
+            _drivers.get(_id).points += parseInt(_point, 10);
         }
     }
     return findMaxPoints(_drivers);

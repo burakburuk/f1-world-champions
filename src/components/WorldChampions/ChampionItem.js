@@ -47,7 +47,7 @@ class ChampionItem extends Component {
     render() {
         const {
             classes, name, year, driverId,
-            image, nationality, company, points,
+            nationality, company, points,
             openChampionsByYearPopup
         } = this.props;
 

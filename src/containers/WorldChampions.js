@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import ListHeader from '../components/Champions/ListHeader';
-import ChampionList from '../components/Champions/ChampionList';
+import ListHeader from '../components/WorldChampions/ListHeader';
+import ChampionList from '../components/WorldChampions/ChampionList';
 
 class Bar extends Component {
     render() {

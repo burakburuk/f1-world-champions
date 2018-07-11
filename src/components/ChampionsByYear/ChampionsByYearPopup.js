@@ -52,17 +52,17 @@ class ChampionByYearPopup extends Component {
 
 ChampionByYearPopup.propTypes = {
     popupChampionsByYearOpen: PropTypes.bool.isRequired
-}
+};
 
 const mapStateToProps = (state) => ({
     popupChampionsByYearOpen: state.champions.popupChampionsByYearOpen,
     selectedYear: state.champions.selectedYear
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({
     requestNumberOfChampionsInSeason: (e) => dispatch(requestNumberOfChampionsInSeason(e)),
     closeChampionsByYearPopup: (e) => dispatch(closeChampionsByYearPopup(e))
-})
+});
 
 export default connect(
     mapStateToProps,

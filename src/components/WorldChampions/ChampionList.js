@@ -7,6 +7,7 @@ import {requestAllChampions, requestNumberOfWorldChampions, openChampionsByYearP
 import ChampionItem from './ChampionItem';
 import objectHash from 'object-hash';
 import ChampionsByYearPopup from '../ChampionsByYear/ChampionsByYearPopup';
+import objectAssing from 'object-assign';
 
 const styles = theme => ({
     root: {
@@ -23,33 +24,45 @@ class ChampionList extends Component {
         this.props.requestAllChampions(2005, 2015);
     }
 
+    populateMap = (champions) => {
+        let _champions = objectAssing(champions.list);
+        for (let i = champions.endYear; i >= champions.startYear; i--) {
+            if (_champions.get(i) === undefined) {
+                _champions.set(i, null);
+            }
+        }
+        return _champions;
+    };
 
     render() {
         const {classes, champions, openChampionsByYearPopup} = this.props;
-        let itemList = [];
-        for (let i = 0; i < champions.numberOfWorldChampions; i++) {
-            if (champions.list[i]) {
-                const _winner = champions.list[i].winner;
+        const _champions = this.populateMap(champions);
+
+        let items = [];
+        _champions.forEach((item, index) => {
+            if (item === null) {
+                items.push(<ChampionItem key={`ChampionItem-${index}`}/>);
+            } else {
+                const _winner = item.winner;
                 const driverName = _winner.Driver.givenName + " " + _winner.Driver.familyName;
                 const driverId = _winner.Driver.driverId;
                 const nationality = _winner.Driver.nationality;
                 const team = _winner.Constructor.name;
-                const points = champions.list[i].points;
-                const season = champions.list[i].season;
+                const points = item.points;
+                const season = item.season;
 
-                itemList.push(<ChampionItem key={objectHash(champions.list[i])} name={driverName} year={season}
-                                            nationality={nationality} company={team} points={points} driverId={driverId}
-                                            openChampionsByYearPopup={openChampionsByYearPopup}
+                items.push(<ChampionItem key={objectHash(item)} name={driverName} year={season}
+                                         nationality={nationality} company={team} points={points}
+                                         driverId={driverId}
+                                         openChampionsByYearPopup={openChampionsByYearPopup}
                 ></ChampionItem>);
-            } else {
-                itemList.push(<ChampionItem key={`ChampionItem-${i}`}/>);
             }
-        }
+        });
 
         return (
             <div className={classes.root}>
                 <List component="nav">
-                    {itemList}
+                    {items}
                 </List>
                 <ChampionsByYearPopup/>
             </div>
@@ -63,7 +76,7 @@ ChampionList.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-    champions: state.champions
+    champions: state.worldChampions
 });
 
 const mapDispatchToProps = (dispatch) => ({
