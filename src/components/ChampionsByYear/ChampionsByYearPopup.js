@@ -16,6 +16,7 @@ const styles = theme => ({
         height: 600,
         marginLeft: 'auto',
         marginRight: 'auto',
+        display:'none'
     },
 });
 

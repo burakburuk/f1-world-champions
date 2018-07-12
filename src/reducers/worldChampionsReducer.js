@@ -19,8 +19,6 @@ export default function worldChampionsReducer(state = {}, action) {
             });
         case actionTypes.COMPLETE_ALL_CHAMPIONS_BY_YEAR_REQUEST:
             return objectAssing({}, state, {listByYear: action.champions, selectedDriverId: action.selectedDriverId});
-        case actionTypes.CLOSE_CHAMPIONS_BY_YEAR_POPUP:
-            return objectAssing({}, state, {popupChampionsByYearOpen: false});
         default:
             return state
     }

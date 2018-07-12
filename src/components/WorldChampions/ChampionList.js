@@ -61,10 +61,10 @@ class ChampionList extends Component {
 
         return (
             <div className={classes.root}>
+                <ChampionsByYearPopup/>
                 <List component="nav">
                     {items}
                 </List>
-                <ChampionsByYearPopup/>
             </div>
         );
     }
