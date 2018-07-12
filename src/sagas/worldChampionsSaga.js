@@ -68,10 +68,15 @@ export function findWorldChampionFromList(list, season) {
             _drivers.get(_id).points += parseInt(_point, 10);
         }
     }
-    return findMaxPoints(_drivers);
+    return findMaxPointsInMap(_drivers);
 }
 
-export function findMaxPoints(list) {
+export function findMaxPointsInMap(list = new Map()) {
+    if(!list)
+        return null;
+    if(list.size == 0)
+        return null;
+
     let max = 0;
     let keyMax = 0;
     list.forEach(function (value, key) {
