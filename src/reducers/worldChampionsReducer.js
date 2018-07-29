@@ -1,25 +1,39 @@
-import * as actionTypes from '../constants';
 import objectAssing from 'object-assign';
+import {updateObject, createReducer} from './reducerUtilities';
 
-export default function worldChampionsReducer(state = {}, action) {
-    switch (action.type) {
-        case actionTypes.HANDLE_ALL_CHAMPIONS_REQUEST:
-            return objectAssing({}, state, {startYear: action.startYear, endYear: action.endYear, isLoaded: false});
-        case actionTypes.REQUEST_NUMBER_OF_WORLD_CHAMPIONS:
-            return objectAssing({}, state, {numberOfWorldChampions: action.numberOfWorldChampions});
-        case actionTypes.FETCH_CHAMPION_BY_YEAR_COMPLETE:
-            let _map = objectAssing(state.list);
-            _map.set(action.year, action.champion);
-            return objectAssing({}, state, {list: _map});
-        case actionTypes.START_ALL_CHAMPIONS_BY_YEAR_REQUEST:
-            return objectAssing({}, state, {
-                popupChampionsByYearOpen: true,
-                selectedYear: action.selectedYear,
-                listByYear: []
-            });
-        case actionTypes.COMPLETE_ALL_CHAMPIONS_BY_YEAR_REQUEST:
-            return objectAssing({}, state, {listByYear: action.champions, selectedDriverId: action.selectedDriverId});
-        default:
-            return state
-    }
-}
+const handleWorldChampsRequest = (worldChampionsState, action) => {
+    return updateObject(worldChampionsState, {startYear: action.startYear, endYear: action.endYear, isLoaded: false});
+};
+
+const requestNumOfWorldChamps = (worldChampionsState, action) => {
+    return updateObject(worldChampionsState, {startYear: action.startYear, endYear: action.endYear, isLoaded: false});
+};
+
+const fetchChampByYearComplete = (worldChampionsState, action) => {
+    let _map = objectAssing(worldChampionsState.list);
+    _map.set(action.year, action.champion);
+    return updateObject(worldChampionsState, {list: _map});
+};
+
+const startAllChampsByYearRequest = (worldChampionsState, action) => {
+    return updateObject(worldChampionsState, {
+        popupChampionsByYearOpen: true,
+        selectedYear: action.selectedYear,
+        listByYear: []
+    });
+};
+
+const completeAllChampsByYearRequest = (worldChampionsState, action) => {
+    return updateObject(worldChampionsState, {listByYear: action.champions, selectedDriverId: action.selectedDriverId});
+};
+
+// Slice reducer
+const worldChampionsReducer = createReducer([], {
+    'HANDLE_ALL_CHAMPIONS_REQUEST': handleWorldChampsRequest,
+    'REQUEST_NUMBER_OF_WORLD_CHAMPIONS': requestNumOfWorldChamps,
+    'FETCH_CHAMPION_BY_YEAR_COMPLETE': fetchChampByYearComplete,
+    'START_ALL_CHAMPIONS_BY_YEAR_REQUEST': startAllChampsByYearRequest,
+    'COMPLETE_ALL_CHAMPIONS_BY_YEAR_REQUEST': completeAllChampsByYearRequest,
+});
+
+export default worldChampionsReducer;

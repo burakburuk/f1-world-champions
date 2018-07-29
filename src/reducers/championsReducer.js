@@ -1,25 +1,41 @@
-import * as actionTypes from '../constants';
-import objectAssing from 'object-assign';
+import {updateObject, createReducer} from './reducerUtilities';
 
-export default function championsReducer(state = {}, action) {
-    switch (action.type) {
-        case actionTypes.REQUEST_NUMBER_OF_CHAMPIONS_IN_SEASON:
-            return objectAssing({}, state, {numberOfChampionsInSeason: action.numberOfChampionsInSeason});
-        case actionTypes.COMPLETE_NUMBER_OF_CHAMPIONS_IN_SEASON:
-            return objectAssing({}, state, {numberOfChampionsInSeason: action.numberOfChampionsInSeason});
-        case actionTypes.HANDLE_ALL_CHAMPIONS_REQUEST:
-            return objectAssing({}, state, {isLoaded: false});
-        case actionTypes.START_ALL_CHAMPIONS_BY_YEAR_REQUEST:
-            return objectAssing({}, state, {
-                popupChampionsByYearOpen: true,
-                selectedYear: action.selectedYear,
-                listByYear: []
-            });
-        case actionTypes.COMPLETE_ALL_CHAMPIONS_BY_YEAR_REQUEST:
-            return objectAssing({}, state, {listByYear: action.champions, selectedDriverId: action.selectedDriverId});
-        case actionTypes.CLOSE_CHAMPIONS_BY_YEAR_POPUP:
-            return objectAssing({}, state, {popupChampionsByYearOpen: false});
-        default:
-            return state
-    }
-}
+const requestNumOfChampsInSeason = (championsState, action) => {
+    return updateObject(championsState, action);
+};
+
+const completeNumOfChampsInSeason = (championsState, action) => {
+    return updateObject(championsState, action);
+};
+
+const handleAllChampsRequest = (championsState, action) => {
+    return updateObject(championsState, {isLoaded: false});
+};
+
+const startAllChampsByYearRequest = (championsState, action) => {
+    return updateObject(championsState, {
+        popupChampionsByYearOpen: true,
+        selectedYear: action.selectedYear,
+        listByYear: []
+    });
+};
+
+const completeAllChampsByYearRequest = (championsState, action) => {
+    return updateObject(championsState, {listByYear: action.champions, selectedDriverId: action.selectedDriverId});
+};
+
+const closeChampsByYearPopup = (championsState, action) => {
+    return updateObject(championsState, {popupChampionsByYearOpen: false});
+};
+
+// Slice reducer
+const championsReducer = createReducer([], {
+    'REQUEST_NUMBER_OF_CHAMPIONS_IN_SEASON': requestNumOfChampsInSeason,
+    'COMPLETE_NUMBER_OF_CHAMPIONS_IN_SEASON': completeNumOfChampsInSeason,
+    'HANDLE_ALL_CHAMPIONS_REQUEST': handleAllChampsRequest,
+    'START_ALL_CHAMPIONS_BY_YEAR_REQUEST': startAllChampsByYearRequest,
+    'COMPLETE_ALL_CHAMPIONS_BY_YEAR_REQUEST': completeAllChampsByYearRequest,
+    'CLOSE_CHAMPIONS_BY_YEAR_POPUP': closeChampsByYearPopup,
+});
+
+export default championsReducer;
