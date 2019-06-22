@@ -16,12 +16,11 @@ class ChampionList extends Component {
         this.props.requestAllChampions(2005, 2015);
     }
 
-    render() {
-        const {classes, champions, openChampionsByYearPopup} = this.props;
-        const _champions = this.populateMap(champions);
-
+    getChampions = (champions) => {
+        const {openChampionsByYearPopup} = this.props;
         let items = [];
-        _champions.forEach((item, index) => {
+
+        champions.forEach((item, index) => {
             if (item === null) {
                 items.push(<ChampionItem key={`ChampionItem-${index}`}/>);
             } else {
@@ -32,15 +31,26 @@ class ChampionList extends Component {
                 const team = _winner.Constructor.name;
                 const points = item.points;
                 const season = item.season;
-
-                items.push(<ChampionItem key={objectHash(item)} name={driverName} year={season}
-                                         nationality={nationality} company={team} points={points}
-                                         driverId={driverId}
-                                         openChampionsByYearPopup={openChampionsByYearPopup}
-                ></ChampionItem>);
+    
+                items.push(
+                    <ChampionItem key={objectHash(item)} 
+                        name={driverName} year={season}
+                        nationality={nationality} company={team} points={points}
+                        driverId={driverId}
+                        openChampionsByYearPopup={openChampionsByYearPopup} >
+                    </ChampionItem>
+                );
             }
-        });
+        });        
 
+        return items;
+    }
+
+    render() {
+        const {classes, champions} = this.props;
+        const _champions = this.populateMap(champions);
+        const items = this.getChampions(_champions);
+        
         return (
             <div className={classes.root}>
                 <ChampionsByYearPopup/>
