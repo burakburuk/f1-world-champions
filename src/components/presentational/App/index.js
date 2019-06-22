@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Provider} from 'react-redux'
+import {Provider} from 'react-redux';
 import WorldChampions from '../WorldChampions';
-import Bar from "../Bar";
+import Bar from '../Bar';
 import '../../../index.scss';
 
 class App extends Component {

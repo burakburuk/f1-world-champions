@@ -12,11 +12,11 @@ import teamCar4 from '../../../assets/img/teamCar4.jpg';
 import teamCar5 from '../../../assets/img/teamCar5.jpg';
 
 const carImages = {
-    "MERCEDES": teamCar2,
-    "RENAULT": teamCar1,
-    "MCLAREN": teamCar4,
-    "FERRARI": teamCar3,
-    "DEFAULT": teamCar5
+    'MERCEDES': teamCar2,
+    'RENAULT': teamCar1,
+    'MCLAREN': teamCar4,
+    'FERRARI': teamCar3,
+    'DEFAULT': teamCar5
 };
 
 class ChampionItem extends Component {
@@ -68,7 +68,7 @@ class ChampionItem extends Component {
                     <Grid item xs={3}>
                         <div className="item-image">
                             {company ?
-                                <img alt="no_image" src={carImages[company.toUpperCase()] || carImages["DEFAULT"]}/> :
+                                <img alt="no_image" src={carImages[company.toUpperCase()] || carImages['DEFAULT']}/> :
                                 <Skeleton/>}
 
                         </div>

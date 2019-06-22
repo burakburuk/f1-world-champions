@@ -16,16 +16,6 @@ class ChampionList extends Component {
         this.props.requestAllChampions(2005, 2015);
     }
 
-    populateMap = (champions) => {
-        let _champions = objectAssing(champions.list);
-        for (let i = champions.endYear; i >= champions.startYear; i--) {
-            if (_champions.get(i) === undefined) {
-                _champions.set(i, null);
-            }
-        }
-        return _champions;
-    };
-
     render() {
         const {classes, champions, openChampionsByYearPopup} = this.props;
         const _champions = this.populateMap(champions);
@@ -36,7 +26,7 @@ class ChampionList extends Component {
                 items.push(<ChampionItem key={`ChampionItem-${index}`}/>);
             } else {
                 const _winner = item.winner;
-                const driverName = _winner.Driver.givenName + " " + _winner.Driver.familyName;
+                const driverName = _winner.Driver.givenName + ' ' + _winner.Driver.familyName;
                 const driverId = _winner.Driver.driverId;
                 const nationality = _winner.Driver.nationality;
                 const team = _winner.Constructor.name;
@@ -60,6 +50,16 @@ class ChampionList extends Component {
             </div>
         );
     }
+
+    populateMap = (champions) => {
+        let _champions = objectAssing(champions.list);
+        for (let i = champions.endYear; i >= champions.startYear; i--) {
+            if (_champions.get(i) === undefined) {
+                _champions.set(i, null);
+            }
+        }
+        return _champions;
+    };
 }
 
 ChampionList.propTypes = {
@@ -80,4 +80,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(withStyles(componentStyles)(ChampionList))
+)(withStyles(componentStyles)(ChampionList));

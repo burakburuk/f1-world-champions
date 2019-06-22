@@ -15,7 +15,7 @@ class ChampionListByYear extends Component {
             if (listByYear[i]) {
                 const _winner = listByYear[i].Results[0];
                 const driverId = _winner.Driver.driverId;
-                const driverName = _winner.Driver.givenName + " " + _winner.Driver.familyName;
+                const driverName = _winner.Driver.givenName + ' ' + _winner.Driver.familyName;
                 const team = _winner.Constructor.name;
                 const season = listByYear[i].season;
                 const date = listByYear[i].date;
@@ -52,4 +52,4 @@ const mapStateToProps = (state) => ({
     selectedDriverId: state.champions.selectedDriverId
 });
 
-export default connect(mapStateToProps)(withStyles(componentStyles)(ChampionListByYear))
+export default connect(mapStateToProps)(withStyles(componentStyles)(ChampionListByYear));

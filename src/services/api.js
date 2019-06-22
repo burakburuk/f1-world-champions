@@ -9,7 +9,7 @@ function callApi(endpoint, pagination) {
             response.json().then(json => ({ json, response }))
         ).then(({ json, response }) => {
             if (!response.ok) {
-                return Promise.reject(json)
+                return Promise.reject(json);
             }
 
             return json;
@@ -17,14 +17,14 @@ function callApi(endpoint, pagination) {
         .then(
             response => ({response}),
             error => ({error: error.message || 'Something bad happened'})
-        )
+        );
 }
 
 // api services
-export const fetchAllChampions = (pagination) => callApi(`.json`,pagination);
+export const fetchAllChampions = (pagination) => callApi('.json',pagination);
 export const fetchChampionByYear = (year) => {
     if(!year){
-        throw new Error("Year parameter must be specified!");
+        throw new Error('Year parameter must be specified!');
     }
     return callApi('/' + year + '/results.json?limit=1000&offset=0');
 };

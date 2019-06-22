@@ -26,7 +26,7 @@ class ChampionsByYearPopup extends Component {
                     fullWidth
                     onClose={this.handleClose}>
                     <DialogTitle id="alert-dialog-slide-title">
-                        {"Champions of " + selectedYear}
+                        {'Champions of ' + selectedYear}
                     </DialogTitle>
                     <DialogContent>
                         <ChampionListByYear/>
@@ -59,4 +59,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(withStyles(componentStyles)(ChampionsByYearPopup))
+)(withStyles(componentStyles)(ChampionsByYearPopup));

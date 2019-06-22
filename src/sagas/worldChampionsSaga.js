@@ -1,5 +1,5 @@
-import {takeEvery, call, put, fork, take} from "redux-saga/effects";
-import * as actionTypes from "../constants";
+import {takeEvery, call, put, fork, take} from 'redux-saga/effects';
+import * as actionTypes from '../constants';
 import {fetchChampionByYear} from '../services';
 import {
     fetchChampComplete
@@ -13,13 +13,13 @@ export function* watchAllChampions() {
 export function* fetchChamp(year) {
     const {response, error} = yield call(() => fetchChampionByYear(year));
     if (error) {
-        console.warn("Error while fetching Champ" + error)
+        console.warn('Error while fetching Champ' + error);
     } else {
         if (response.MRData) {
             let champion = findWorldChampionFromList(response.MRData.RaceTable.Races, year);
             yield put(fetchChampComplete(champion, year));
         } else {
-            console.warn("response.MRData is not defined!!");
+            console.warn('response.MRData is not defined!!');
         }
     }
 }
@@ -33,7 +33,7 @@ export function* requestWorldChampionsByDateRange(action) {
                 tasks[i] = yield fork(fetchChamp, i);
             }
         } else {
-            throw new Error("Start and End parameters must be defined!");
+            throw new Error('Start and End parameters must be defined!');
         }
         yield take(actionTypes.COMPLETE_ALL_CHAMPIONS_REQUEST);
 

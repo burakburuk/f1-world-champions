@@ -20,7 +20,7 @@ class ChampionItemByYear extends Component {
                         <Divider/>
                     </Grid>
                     <Grid item xs={6}>
-                        <div className={highlight ? "by-name-item-highlight" : "by-driver"}>
+                        <div className={highlight ? 'by-name-item-highlight' : 'by-driver'}>
                             {name || <Skeleton/>}
                         </div>
                     </Grid>

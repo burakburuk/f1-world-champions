@@ -1,5 +1,5 @@
-import {takeEvery, call, put} from "redux-saga/effects";
-import * as actionTypes from "../constants";
+import {takeEvery, call, put} from 'redux-saga/effects';
+import * as actionTypes from '../constants';
 import {fetchAllChampionsByYear} from '../services';
 import {
     startAllChampionsRequest,
@@ -24,7 +24,7 @@ function* requestAllChampionsByYear(action) {
                 yield put(completeAllChampionByYearRequest(response.MRData.RaceTable.Races, action.selectedDriverId));
             }
         } else {
-            throw new Error("Start and End parameters must be defined!");
+            throw new Error('Start and End parameters must be defined!');
         }
     } catch (error) {
         console.warn(error.message);
