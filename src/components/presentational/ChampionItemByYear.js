@@ -5,7 +5,7 @@ import ListItem from '@material-ui/core/ListItem';
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 import Skeleton from 'react-loading-skeleton';
-import componentStyles from './componentStyle';
+import componentStyles from './ChampionItemByYearStyle';
 
 class ChampionItemByYear extends Component {
     render() {

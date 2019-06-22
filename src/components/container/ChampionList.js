@@ -3,12 +3,12 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
-import {requestAllChampions, requestNumberOfWorldChampions, openChampionsByYearPopup} from '../../../actions';
-import ChampionItem from '../../presentational/ChampionItem';
+import {requestAllChampions, requestNumberOfWorldChampions, openChampionsByYearPopup} from '../../actions';
+import ChampionItem from '../presentational/ChampionItem';
 import objectHash from 'object-hash';
-import ChampionsByYearPopup from '../ChampionsByYearPopup';
+import ChampionsByYearPopup from './ChampionsByYearPopup';
 import objectAssing from 'object-assign';
-import componentStyles from './componentStyles';
+import componentStyles from './ChampionListStyles';
 
 class ChampionList extends Component {
     componentDidMount() {

@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
-import ChampionItemByYear from '../../presentational/ChampionItemByYear';
+import ChampionItemByYear from '../presentational/ChampionItemByYear';
 import objectHash from 'object-hash';
-import componentStyles from './componentStyles';
+import componentStyles from './ChampionListByYearStyles';
 
 class ChampionListByYear extends Component {
     render() {

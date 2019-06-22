@@ -4,12 +4,12 @@ import {withStyles} from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import Grid from '@material-ui/core/Grid';
 import Skeleton from 'react-loading-skeleton';
-import componentStyles from './componentStyles';
-import teamCar1 from '../../../assets/img/teamCar1.jpg';
-import teamCar2 from '../../../assets/img/teamCar2.jpg';
-import teamCar3 from '../../../assets/img/teamCar3.jpg';
-import teamCar4 from '../../../assets/img/teamCar4.jpg';
-import teamCar5 from '../../../assets/img/teamCar5.jpg';
+import componentStyles from './ChampionItemStyles';
+import teamCar1 from '../../assets/img/teamCar1.jpg';
+import teamCar2 from '../../assets/img/teamCar2.jpg';
+import teamCar3 from '../../assets/img/teamCar3.jpg';
+import teamCar4 from '../../assets/img/teamCar4.jpg';
+import teamCar5 from '../../assets/img/teamCar5.jpg';
 
 const carImages = {
     'MERCEDES': teamCar2,

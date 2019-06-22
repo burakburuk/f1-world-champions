@@ -1,6 +1,7 @@
+import '../../index.scss';
+
 import React, { Component } from 'react';
-import logo from '../../../assets/img/logo.svg';
-import '../../../index.scss';
+import logo from '../../assets/img/logo.svg';
 
 class Bar extends Component {
     render() {

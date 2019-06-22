@@ -1,9 +1,10 @@
+import '../../index.scss';
+
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Provider} from 'react-redux';
-import WorldChampions from '../WorldChampions';
-import Bar from '../Bar';
-import '../../../index.scss';
+import WorldChampions from './WorldChampions';
+import Bar from './Bar';
 
 class App extends Component {
     render() {
