@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {Provider} from 'react-redux'
 import WorldChampions from '../WorldChampions';
 import Bar from "../Bar";
-import '../../../index.css';
+import '../../../index.scss';
 
 class App extends Component {
     render() {

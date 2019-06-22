@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import logo from '../../../assets/img/f1_logo_white.svg';
-import '../../../index.css';
+import logo from '../../../assets/img/logo.svg';
+import '../../../index.scss';
 
 class Bar extends Component {
     render() {
         return (
             <div className="app-bar">
-                <img alt="no_logo" src={logo}/>
+                <span dangerouslySetInnerHTML={{__html: logo}} />
             </div>
         );
     }

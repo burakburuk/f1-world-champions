@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import {requestAllChampions, requestNumberOfWorldChampions, openChampionsByYearPopup} from '../../../actions';
-import ChampionItem from '../../views/ChampionItem';
+import ChampionItem from '../../presentational/ChampionItem';
 import objectHash from 'object-hash';
 import ChampionsByYearPopup from '../ChampionsByYearPopup';
 import objectAssing from 'object-assign';
