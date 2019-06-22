@@ -1,6 +1,141 @@
-body {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: sans-serif;
+}
+
+body {
   background: #ededed;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.app-bar {
+  width: 100%;
+  height: 80px;
+  background: #e00;
+  color: white;
+  vertical-align: middle;
+}
+
+.app-bar img {
+  width: 120px;
+  margin-left: 18px;
+  margin-top: 25px;
+}
+
+@keyframes App-logo-spin {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+.list-header {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #4c4c4c;
+}
+
+.list-header-driver {
+  width: 33%;
+  padding-left: 80px;
+}
+
+.list-header-nationality {
+  width: 18%;
+}
+
+.list-header-team {
+  width: 33%;
+}
+
+.list-header-points {
+
+}
+
+.ch-item {
+  color: gray;
+  text-align: center;
+  padding-top: 2px;
+}
+
+.by-item {
+  color: gray;
+}
+
+.by-driver {
+  color: black;
+}
+
+.by-name-item-highlight {
+  color: #ec7373;
+}
+
+.item-year {
+  transform: rotate(270deg);
+  width: 54px;
+  height: 27px;
+  text-align: center;
+  margin-left: -25px;
+  margin-top: -14px;
+  background: #bfbfbf;
+  color: white;
+  padding-top: 11px;
+  border-right: 10px solid red;
+}
+
+.item-driver {
+  color: #000000;
+}
+
+.item-nationality {
+
+}
+
+.item-company {
+  text-align: right;
+}
+
+.item-points {
+  text-align: right;
+}
+
+.item-image {
+  text-align: center;
+  padding-top: 0;
+}
+
+.item-race {
+  font-size: 18px;
+}
+
+.item-image img {
+  width: 60%;
 }

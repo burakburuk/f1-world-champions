@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './containers/App';
+import App from './components/views/App';
 import registerServiceWorker from './registerServiceWorker';
 import initialState from './reducers/initialState';
 import configureStore from './store/configureStore';

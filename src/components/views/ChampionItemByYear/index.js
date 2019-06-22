@@ -5,16 +5,7 @@ import ListItem from '@material-ui/core/ListItem';
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 import Skeleton from 'react-loading-skeleton';
-
-const styles = theme => ({
-    root: {
-        width: '100%',
-        height: 90,
-        marginBottom: 0,
-        paddingTop: 0,
-        backgroundColor: theme.palette.background.paper,
-    },
-});
+import componentStyles from './componentStyle';
 
 class ChampionItemByYear extends Component {
     render() {
@@ -53,4 +44,4 @@ ChampionItemByYear.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ChampionItemByYear);
+export default withStyles(componentStyles)(ChampionItemByYear);

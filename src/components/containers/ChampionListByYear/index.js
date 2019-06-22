@@ -3,17 +3,9 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
-import ChampionItemByYear from './ChampionItemByYear';
+import ChampionItemByYear from '../../views/ChampionItemByYear';
 import objectHash from 'object-hash';
-
-const styles = theme => ({
-    root: {
-        width: '100%',
-        maxWidth: 800,
-        marginLeft: 'auto',
-        marginRight: 'auto',
-    },
-});
+import componentStyles from './componentStyles';
 
 class ChampionListByYear extends Component {
     render() {
@@ -60,9 +52,4 @@ const mapStateToProps = (state) => ({
     selectedDriverId: state.champions.selectedDriverId
 });
 
-const mapDispatchToProps = (dispatch) => ({})
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(withStyles(styles)(ChampionListByYear))
+export default connect(mapStateToProps)(withStyles(componentStyles)(ChampionListByYear))

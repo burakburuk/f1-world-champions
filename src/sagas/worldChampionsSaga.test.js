@@ -1,4 +1,4 @@
-import {findWorldChampionFromList, findMaxPointsInMap,requestWorldChampionsByDateRange,fetchChamp} from './worldChampionsSaga';
+import {findMaxPointsInMap} from './worldChampionsSaga';
 
 test('findMaxPoints without parameter', () => {
     expect(findMaxPointsInMap()).toEqual(null);

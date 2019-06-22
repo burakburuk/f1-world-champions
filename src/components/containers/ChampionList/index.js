@@ -3,20 +3,12 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
-import {requestAllChampions, requestNumberOfWorldChampions, openChampionsByYearPopup} from '../../actions';
-import ChampionItem from './ChampionItem';
+import {requestAllChampions, requestNumberOfWorldChampions, openChampionsByYearPopup} from '../../../actions';
+import ChampionItem from '../../views/ChampionItem';
 import objectHash from 'object-hash';
-import ChampionsByYearPopup from '../ChampionsByYear/ChampionsByYearPopup';
+import ChampionsByYearPopup from '../ChampionsByYearPopup';
 import objectAssing from 'object-assign';
-
-const styles = theme => ({
-    root: {
-        width: '100%',
-        maxWidth: 800,
-        marginLeft: 'auto',
-        marginRight: 'auto',
-    },
-});
+import componentStyles from './componentStyles';
 
 class ChampionList extends Component {
     componentDidMount() {
@@ -88,4 +80,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(withStyles(styles)(ChampionList))
+)(withStyles(componentStyles)(ChampionList))

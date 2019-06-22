@@ -4,11 +4,12 @@ import {withStyles} from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import Grid from '@material-ui/core/Grid';
 import Skeleton from 'react-loading-skeleton';
-import teamCar1 from '../../assets/img/teamCar1.jpg';
-import teamCar2 from '../../assets/img/teamCar2.jpg';
-import teamCar3 from '../../assets/img/teamCar3.jpg';
-import teamCar4 from '../../assets/img/teamCar4.jpg';
-import teamCar5 from '../../assets/img/teamCar5.jpg';
+import componentStyles from './componentStyles';
+import teamCar1 from '../../../assets/img/teamCar1.jpg';
+import teamCar2 from '../../../assets/img/teamCar2.jpg';
+import teamCar3 from '../../../assets/img/teamCar3.jpg';
+import teamCar4 from '../../../assets/img/teamCar4.jpg';
+import teamCar5 from '../../../assets/img/teamCar5.jpg';
 
 const carImages = {
     "MERCEDES": teamCar2,
@@ -18,18 +19,7 @@ const carImages = {
     "DEFAULT": teamCar5
 };
 
-const styles = theme => ({
-    root: {
-        width: '100%',
-        height: 80,
-        marginBottom: 15,
-        paddingTop: 36,
-        backgroundColor: theme.palette.background.paper,
-    },
-});
-
 class ChampionItem extends Component {
-
     shouldComponentUpdate(nextProps) {
         if (nextProps.classes === this.props.classes &&
             nextProps.name === this.props.name &&
@@ -98,4 +88,4 @@ ChampionItem.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ChampionItem);
+export default withStyles(componentStyles)(ChampionItem);

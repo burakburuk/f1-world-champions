@@ -2,25 +2,16 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
-import {closeChampionsByYearPopup, requestNumberOfChampionsInSeason} from '../../actions';
+import {closeChampionsByYearPopup, requestNumberOfChampionsInSeason} from '../../../actions';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogActions from '@material-ui/core/DialogActions';
 import Button from '@material-ui/core/Button';
-import ChampionListByYear from './ChampionListByYear';
+import ChampionListByYear from '../ChampionListByYear';
+import componentStyles from './componentStyles';
 
-const styles = theme => ({
-    root: {
-        width: 600,
-        height: 600,
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        display:'none'
-    },
-});
-
-class ChampionByYearPopup extends Component {
+class ChampionsByYearPopup extends Component {
     componentDidMount() {
         this.props.requestNumberOfChampionsInSeason();
     }
@@ -51,7 +42,7 @@ class ChampionByYearPopup extends Component {
     }
 }
 
-ChampionByYearPopup.propTypes = {
+ChampionsByYearPopup.propTypes = {
     popupChampionsByYearOpen: PropTypes.bool.isRequired
 };
 
@@ -68,4 +59,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(withStyles(styles)(ChampionByYearPopup))
+)(withStyles(componentStyles)(ChampionsByYearPopup))

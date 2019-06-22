@@ -7,18 +7,9 @@ import {
     completeNumberOfChampionsInSeason
 } from '../actions';
 
-/******************************************************************************/
-/******************************* WATCHERS *************************************/
-/******************************************************************************/
-
 export function* watchOpenChampionsByYearPopup() {
     yield takeEvery(actionTypes.HANDLE_OPEN_CHAMPIONS_BY_YEAR_POPUP, requestAllChampionsByYear);
 }
-
-/******************************************************************************/
-/******************************* SAGAS ****************************************/
-
-/******************************************************************************/
 
 function* requestAllChampionsByYear(action) {
     try {

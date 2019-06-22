@@ -3,19 +3,9 @@ import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
-
-const styles = theme => ({
-    root: {
-        width: '100%',
-        maxWidth: 800,
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        color: '#4c4c4c',
-    },
-});
+import componentStyles from './componentStyles';
 
 class ListHeader extends Component {
-
     render() {
         const {classes} = this.props;
         return (
@@ -46,4 +36,4 @@ ListHeader.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ListHeader);
+export default withStyles(componentStyles)(ListHeader);

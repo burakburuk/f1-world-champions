@@ -5,19 +5,10 @@ import {
     fetchChampComplete
 } from '../actions';
 
-/******************************************************************************/
-/******************************* WATCHERS *************************************/
-/******************************************************************************/
-
 // handles dispatched champions get request and calls related method.
 export function* watchAllChampions() {
     yield takeEvery(actionTypes.HANDLE_ALL_CHAMPIONS_REQUEST, requestWorldChampionsByDateRange);
 }
-
-/******************************************************************************/
-/******************************* SAGAS ****************************************/
-
-/******************************************************************************/
 
 export function* fetchChamp(year) {
     const {response, error} = yield call(() => fetchChampionByYear(year));
@@ -74,7 +65,7 @@ export function findWorldChampionFromList(list, season) {
 export function findMaxPointsInMap(list = new Map()) {
     if(!list)
         return null;
-    if(list.size == 0)
+    if(list.size === 0)
         return null;
 
     let max = 0;

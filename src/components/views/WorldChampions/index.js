@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import ListHeader from '../components/WorldChampions/ListHeader';
-import ChampionList from '../components/WorldChampions/ChampionList';
+import ListHeader from '../ListHeader';
+import ChampionList from '../../containers/ChampionList';
 
-class Bar extends Component {
+class WorldChampions extends Component {
     render() {
         return (
             <div>
@@ -13,4 +13,4 @@ class Bar extends Component {
     }
 }
 
-export default Bar;
+export default WorldChampions;
