@@ -1,43 +1,16 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import Grid from '@material-ui/core/Grid';
 import Skeleton from 'react-loading-skeleton';
 import componentStyles from './ChampionItemStyles';
-import teamCar1 from '../../assets/img/teamCar1.jpg';
-import teamCar2 from '../../assets/img/teamCar2.jpg';
-import teamCar3 from '../../assets/img/teamCar3.jpg';
-import teamCar4 from '../../assets/img/teamCar4.jpg';
-import teamCar5 from '../../assets/img/teamCar5.jpg';
 
-const carImages = {
-    'MERCEDES': teamCar2,
-    'RENAULT': teamCar1,
-    'MCLAREN': teamCar4,
-    'FERRARI': teamCar3,
-    'DEFAULT': teamCar5
-};
-
-class ChampionItem extends Component {
-    shouldComponentUpdate(nextProps) {
-        if (nextProps.classes === this.props.classes &&
-            nextProps.name === this.props.name &&
-            nextProps.year === this.props.year &&
-            nextProps.driverId === this.props.driverId &&
-            nextProps.image === this.props.image &&
-            nextProps.nationality === this.props.nationality &&
-            nextProps.company === this.props.company &&
-            nextProps.points === this.props.points) {
-            return false;
-        }
-        return true;
-    }
-
+class ChampionItem extends PureComponent {
     render() {
         const {
             classes, name, year, driverId,
-            nationality, company, points,
+            nationality, company, points, carImage,
             openChampionsByYearPopup
         } = this.props;
 
@@ -67,9 +40,7 @@ class ChampionItem extends Component {
                     </Grid>
                     <Grid item xs={3}>
                         <div className="item-image">
-                            {company ?
-                                <img alt="no_image" src={carImages[company.toUpperCase()] || carImages['DEFAULT']}/> :
-                                <Skeleton/>}
+                            {company ? <img alt="no_image" src={carImage}/> : <Skeleton/>}
 
                         </div>
                     </Grid>

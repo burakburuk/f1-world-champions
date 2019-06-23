@@ -2,7 +2,10 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
-import {closeChampionsByYearPopup, requestNumberOfChampionsInSeason} from '../../actions';
+import {
+    closeChampionsByYearPopup,
+    requestNumberOfChampionsInSeason
+} from '../../actions';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -32,7 +35,9 @@ class ChampionsByYearPopup extends Component {
                         <ChampionListByYear/>
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={(e) => this.props.closeChampionsByYearPopup(e)} color="primary">
+                        <Button
+                            onClick={this.props.closeChampionsByYearPopup}
+                            color="primary">
                             Close
                         </Button>
                     </DialogActions>

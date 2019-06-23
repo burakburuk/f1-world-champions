@@ -1,7 +1,7 @@
 const API_ROOT = 'http://ergast.com/api/f1';
 
 // Fetches an API response and returns a promise
-function callApi(endpoint, pagination) {
+export default function callApi(endpoint, pagination) {
     let fullUrl = (endpoint.indexOf(API_ROOT) === -1) ? API_ROOT + endpoint : endpoint;
 
     return fetch(fullUrl)
@@ -16,17 +16,6 @@ function callApi(endpoint, pagination) {
         })
         .then(
             response => ({response}),
-            error => ({error: error.message || 'Something bad happened'})
+            error => ({error: error.message || 'Error occured while requesting from the server!'})
         );
-}
-
-// api services
-export const fetchAllChampions = (pagination) => callApi('.json',pagination);
-export const fetchChampionByYear = (year) => {
-    if(!year){
-        throw new Error('Year parameter must be specified!');
-    }
-    return callApi('/' + year + '/results.json?limit=1000&offset=0');
 };
-
-export const fetchAllChampionsByYear = (year) => callApi('/' + year + '/results/1.json');

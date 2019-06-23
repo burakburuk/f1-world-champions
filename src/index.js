@@ -9,4 +9,7 @@ import rootSaga from './sagas';
 const store = configureStore(initialState);
 store.runSaga(rootSaga);
 
-ReactDOM.render(<App store={store} />, document.getElementById('root'));
+ReactDOM.render(
+    <App store={store} />,
+    document.getElementById('root')
+);

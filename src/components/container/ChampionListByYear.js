@@ -4,38 +4,55 @@ import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ChampionItemByYear from '../presentational/ChampionItemByYear';
-import objectHash from 'object-hash';
 import componentStyles from './ChampionListByYearStyles';
 
 class ChampionListByYear extends Component {
-    render() {
-        const {classes, listByYear, numberOfChampionsInSeason, selectedDriverId} = this.props;
+
+    getChampionList = () => {
+        const {listByYear, numberOfChampionsInSeason, selectedDriverId} = this.props;
         let itemList = [];
+
         for (let i = 0; i < numberOfChampionsInSeason; i++) {
-            if (listByYear[i]) {
-                const _winner = listByYear[i].Results[0];
-                const driverId = _winner.Driver.driverId;
-                const driverName = _winner.Driver.givenName + ' ' + _winner.Driver.familyName;
-                const team = _winner.Constructor.name;
+            if (listByYear[i]) {                
+                const winner = listByYear[i].Results[0];
+                const driverId = winner.Driver.driverId;
+                const driverName = winner.Driver.givenName + ' ' + winner.Driver.familyName;
+                const team = winner.Constructor.name;
                 const season = listByYear[i].season;
                 const date = listByYear[i].date;
                 const raceName = listByYear[i].raceName;
+                const key = `${driverName}-${date}`;
 
-                itemList.push(<ChampionItemByYear key={objectHash(listByYear[i])} name={driverName}
-                                                  year={season} date={date} company={team}
-                                                  highlight={selectedDriverId === driverId}
-                                                  race={raceName}
-                ></ChampionItemByYear>);
+                itemList.push(
+                    <ChampionItemByYear
+                        key={key} 
+                        name={driverName}
+                        year={season}
+                        date={date}
+                        company={team}
+                        highlight={selectedDriverId === driverId}
+                        race={raceName} >
+                    </ChampionItemByYear>
+                );
             } else {
-                itemList.push(<ChampionItemByYear key={`ChampionItemByYear-${i}`}
-                ></ChampionItemByYear>);
+                itemList.push(
+                    <ChampionItemByYear key={`ChampionItemByYear-${i}`}>
+                    </ChampionItemByYear>
+                );
             }
         }
+
+        return itemList;
+    }
+
+    render() {
+        const {classes} = this.props;
+        const championList = this.getChampionList();
 
         return (
             <div className={classes.root}>
                 <List component="nav">
-                    {itemList}
+                    {championList}
                 </List>
             </div>
         );
