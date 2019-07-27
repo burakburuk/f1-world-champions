@@ -69,4 +69,4 @@ const mapStateToProps = (state) => ({
     selectedDriverId: state.champions.selectedDriverId
 });
 
-export default connect(mapStateToProps)(withStyles(componentStyles)(ChampionListByYear));
+export default withStyles(componentStyles)(connect(mapStateToProps)(ChampionListByYear));

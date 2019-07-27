@@ -1,23 +1,26 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: ["babel-polyfill", "./src/index"],
+  entry: ['babel-polyfill', './src/index'],
   devtool: 'inline-cheap-module-source-map',
+  resolve: {
+    extensions: ['.js', '.jsx', '.json', '.css', '.scss'],
+  },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
+          loader: 'babel-loader'
         }
       },
       {
         test: /\.scss$/,
         use: [
-            "style-loader", // creates style nodes from JS strings
-            "css-loader", // translates CSS into CommonJS
-            "sass-loader" // compiles Sass to CSS, using Node Sass by default
+            'style-loader', // creates style nodes from JS strings
+            'css-loader', // translates CSS into CommonJS
+            'sass-loader' // compiles Sass to CSS, using Node Sass by default
         ]
       },
       {
@@ -37,7 +40,7 @@ module.exports = {
         test: /\.html$/,
         use: [
           {
-            loader: "html-loader"
+            loader: 'html-loader'
           }
         ]
       }
@@ -45,8 +48,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./src/index.html",
-      filename: "./index.html"
+      template: './src/index.html',
+      filename: './index.html'
     })
   ]
 };
