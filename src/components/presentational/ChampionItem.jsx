@@ -4,44 +4,50 @@ import Skeleton from 'react-loading-skeleton';
 class ChampionItem extends PureComponent {
     render() {
         const {
-            name, year, driverId,
-            nationality, company, points, carImage
+            name, 
+            year, 
+            nationality, 
+            company, 
+            points, 
+            carImage
         } = this.props;
-
-        if (!driverId) {
-            return this.getSkeleton();
-        }
 
         return (
             <tr>
                 <td>
-                    <div className="item-year">
-                        {year}
+                    <div className="ch-item item-year">
+                        {year || <Skeleton />}
                     </div>
                 </td>
                 <td>
                     <div className="ch-item item-driver">
-                        {name}
+                        {name || <Skeleton />}
                     </div>
                 </td>
                 <td>
                     <div className="ch-item">
-                        {nationality}
+                        {nationality || <Skeleton />}
                     </div>
                 </td>
                 <td>
                     <div className="ch-item">
-                        <div className="item-company">{company}</div>
-                        <img className="item-image" alt="no_image" src={carImage}/>
+                        {company ? <div className="item-company">{company}</div> : <Skeleton />}
+                        {company && <img className="item-image" alt="no_image" src={carImage}/>}
                     </div>
                 </td>
                 <td>
                     <div className="ch-item item-points">
-                        {points}
+                        {points || <Skeleton />}
                     </div>
                 </td>
                 <td>
-                    <a onClick={this.handleOpenChampionsByYearPopup} className="item-show-all-champions">Show All Champions</a>
+                    <div className="ch-item">
+                        <a
+                            onClick={this.handleOpenChampionsByYearPopup}
+                            className="item-show-all-champions">
+                            Show all champions
+                        </a>
+                    </div>
                 </td>
             </tr>
         );
@@ -49,14 +55,16 @@ class ChampionItem extends PureComponent {
 
     handleOpenChampionsByYearPopup = () => {
         const {year, driverId} = this.props;
-        this.props.openChampionsByYearPopup(year, driverId);
+        if (year && driverId) {
+            this.props.openChampionsByYearPopup(year, driverId);
+        }
     }
 
     getSkeleton() {
         return (
             <tr>
                 <td colSpan={6}>
-                    <Skeleton height={50} />
+                    <Skeleton />
                 </td>
             </tr>
         );

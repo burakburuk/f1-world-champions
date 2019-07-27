@@ -101,6 +101,8 @@
   color: gray;
   text-align: center;
   padding-top: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .by-item {
@@ -153,7 +155,7 @@
 }
 
 .header-show-all-champions {
-  width: 152px;
+  width: 162px;
 }
 
 .header-year {
@@ -162,6 +164,7 @@
 
 .header-points {
   text-align: right;
+  width: 55px;
 }
 
 .item-race {
