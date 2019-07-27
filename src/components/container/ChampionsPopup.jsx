@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import {withStyles} from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import {
     closeChampionsByYearPopup,
-    requestNumberOfChampionsInSeason
+    requestNumberOfChampionsInSeason,
 } from '../../actions';
 import ChampionsByYearPopup from '../presentational/ChampionsByYearPopup';
 import componentStyles from './ChampionsByYearPopupStyles';
@@ -15,11 +15,11 @@ class ChampionsPopup extends Component {
     }
 
     render() {
-        const {classes, popupChampionsByYearOpen, selectedYear} = this.props;
+        const { classes, open, selectedYear } = this.props;
         return (
             <ChampionsByYearPopup
                 classes={classes}
-                popupChampionsByYearOpen={popupChampionsByYearOpen}
+                open={open}
                 selectedYear={selectedYear}
                 onClose={this.handleClose}
             />
@@ -27,25 +27,29 @@ class ChampionsPopup extends Component {
     }
 
     handleClose = (event) => {
-        this.props.closeChampionsByYearPopup(event);
+        this.props.onClose(event);
     }
 }
 
 ChampionsPopup.propTypes = {
-    popupChampionsByYearOpen: PropTypes.bool.isRequired
+    classes: PropTypes.object.isRequired,
+    open: PropTypes.bool,
+    requestNumberOfChampionsInSeason: PropTypes.func.isRequired,
+    onClose: PropTypes.func,
+    selectedYear: PropTypes.number.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-    popupChampionsByYearOpen: state.champions.popupChampionsByYearOpen,
-    selectedYear: state.champions.selectedYear
+const mapStateToProps = state => ({
+    open: state.champions.popupChampionsByYearOpen,
+    selectedYear: state.champions.selectedYear,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-    requestNumberOfChampionsInSeason: (e) => dispatch(requestNumberOfChampionsInSeason(e)),
-    closeChampionsByYearPopup: (e) => dispatch(closeChampionsByYearPopup(e))
+const mapDispatchToProps = dispatch => ({
+    requestNumberOfChampionsInSeason: e => dispatch(requestNumberOfChampionsInSeason(e)),
+    closeChampionsByYearPopup: e => dispatch(closeChampionsByYearPopup(e)),
 });
 
 export default withStyles(componentStyles)(connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(ChampionsPopup));

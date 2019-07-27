@@ -1,11 +1,12 @@
 module.exports = {
+    "extends": [
+        "airbnb-base",
+        'plugin:react/recommended',
+        "plugin:import/react",
+    ],
     "env": {
         "browser": true,
         "es6": true
-    },
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
     },
     "parserOptions": {
         "ecmaFeatures": {
@@ -18,8 +19,18 @@ module.exports = {
         "react"
     ],
     "rules": {
-        "semi": ["error", "always"],
-        "quotes": ["error", "single"]
+        "indent": ["error", 4],
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4],
+        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+        "max-len": ["error", { "code": 120 }],
+    },
+    "settings": {
+        "import/resolver": {
+          "node": {
+            "extensions": [".js",".jsx"]
+          }
+        }
     },
     "parser": "babel-eslint"
 };

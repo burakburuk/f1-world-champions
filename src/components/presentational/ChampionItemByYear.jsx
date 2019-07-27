@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
@@ -8,7 +8,14 @@ import Skeleton from 'react-loading-skeleton';
 import componentStyles from './ChampionItemByYearStyle';
 
 const ChampionItemByYear = (props) => {
-    const {classes, name, race, company, date, highlight} = props;
+    const {
+        classes,
+        name,
+        race,
+        company,
+        date,
+        highlight,
+    } = props;
 
     return (
         <ListItem className={classes.root}>
@@ -41,6 +48,11 @@ const ChampionItemByYear = (props) => {
 
 ChampionItemByYear.propTypes = {
     classes: PropTypes.object.isRequired,
+    name: PropTypes.string,
+    race: PropTypes.string,
+    company: PropTypes.string,
+    date: PropTypes.string,
+    highlight: PropTypes.bool,
 };
 
 export default withStyles(componentStyles)(ChampionItemByYear);
