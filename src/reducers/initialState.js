@@ -5,14 +5,14 @@ const initialState = {
         isLoaded: false,
         selectedYear: 0,
         selectedDriverId: null,
-        listByYear: []
+        listByYear: [],
     },
     worldChampions: {
         list: new Map(),
         numberOfWorldChampions: 0,
         startYear: 1,
         endYear: 0,
-    }
+    },
 };
 
 export default initialState;

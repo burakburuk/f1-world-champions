@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 import championsReducer from './championsReducer';
 import worldChampionsReducer from './worldChampionsReducer';
 
