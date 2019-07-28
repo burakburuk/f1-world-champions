@@ -12,10 +12,11 @@ const WinnersInYearDialog = (props) => {
     return (
         <Dialog
             open={!!open}>
-            <DialogTitle onClose={onClose}>
-                {`Champions of ${selectedYear}`}
-            </DialogTitle>
-            <DialogContent>
+            <DialogContent
+                width={800}>
+                <DialogTitle onClose={onClose}>
+                    {`Champions of ${selectedYear}`}
+                </DialogTitle>
                 <WinnerTableInYearContainer/>
             </DialogContent>
         </Dialog>

@@ -1,11 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const StyledDialogTitle = styled.div`
+    padding: 2px 16px;
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+`;
 
 const DialogTitle = props => (
-    <div className="modal-header">
-        <span className="close" onClick={props.onClose}>&times;</span>
+    <StyledDialogTitle>
+        <span
+            className='close'
+            onClick={props.onClose}>
+            &times;
+        </span>
         <h2>{props.children}</h2>
-    </div>
+    </StyledDialogTitle>
 );
 
 DialogTitle.propTypes = {

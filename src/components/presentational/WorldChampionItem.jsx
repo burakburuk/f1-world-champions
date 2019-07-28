@@ -45,7 +45,7 @@ class WorldChampionItem extends PureComponent {
                 <td>
                     <div className="ch-item">
                         <Button
-                            color={name ? 'primary' : 'disabled'}
+                            primary={!!name}
                             className="show-details"
                             onClick={this.handleOpenChampionsByYearPopup}>
                             Show details

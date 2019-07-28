@@ -11,7 +11,7 @@ const App = (props) => {
     const { store } = props;
     return (
         <Provider store={store}>
-            <div className={'App'}>
+            <div>
                 <Bar/>
                 <WorldChampionTableContainer />
                 <WinnersInYearDialogContainer />

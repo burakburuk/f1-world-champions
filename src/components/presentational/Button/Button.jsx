@@ -1,32 +1,32 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-const Button = (props) => {
-    const classNames = `button ${props.className} ${getColor(props.color)}`;
-    return (
-        <button
-            className={classNames}
-            onClick={props.onClick} >
-            {props.children}
-        </button>
-    );
-};
+const StyledButton = styled.button`
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    background-color: ${props => (props.primary ? '#51a4de' : '#ece9e9')};
 
-function getColor(color) {
-    switch (color) {
-    case 'primary':
-        return 'button-primary';
-    case 'disabled':
-        return 'button-gray';
-    default:
-        return 'button-primary';
+    &:hover {
+        background-color: ${props => (props.primary ? '#3e82b1' : '')};
     }
-}
+`;
+
+const Button = props => (
+    <StyledButton
+        primary={props.primary}
+        onClick={props.onClick} >
+        {props.children}
+    </StyledButton>
+);
 
 Button.propTypes = {
-    className: PropTypes.string,
-    color: PropTypes.string,
+    primary: PropTypes.bool,
     onClick: PropTypes.func,
     children: PropTypes.string.isRequired,
 };

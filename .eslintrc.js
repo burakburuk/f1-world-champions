@@ -20,6 +20,7 @@ module.exports = {
         'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
         'no-use-before-define': ['error', { functions: false }],
         'max-len': ['error', { code: 120 }],
+        'no-confusing-arrow': ['error', { allowParens: true }],
     },
     settings: {
         'import/resolver': {
