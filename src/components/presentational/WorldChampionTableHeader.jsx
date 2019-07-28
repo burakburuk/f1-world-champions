@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ListHeader = () => (
+const WorldChampionTableHeader = () => (
     <tr>
         <th className="header-year">
             Year
@@ -21,4 +21,4 @@ const ListHeader = () => (
     </tr>
 );
 
-export default ListHeader;
+export default WorldChampionTableHeader;

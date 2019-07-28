@@ -23,6 +23,7 @@ module.exports = {
         "react/jsx-indent": ["error", 4],
         "react/jsx-indent-props": ["error", 4],
         "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+        "no-use-before-define": ["error", { "functions": false }],
         "max-len": ["error", { "code": 120 }],
     },
     "settings": {

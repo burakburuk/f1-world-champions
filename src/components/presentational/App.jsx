@@ -3,8 +3,8 @@ import '../../index.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
-import WorldChampions from './WorldChampions';
-import ChampionsPopup from '../container/ChampionsPopup';
+import WorldChampionTableContainer from '../container/WorldChampionTableContainer';
+import WinnersInYearDialogContainer from '../container/WinnersInYearDialogContainer';
 import Bar from './Bar';
 
 const App = (props) => {
@@ -13,8 +13,8 @@ const App = (props) => {
         <Provider store={store}>
             <div className={'App'}>
                 <Bar/>
-                <WorldChampions></WorldChampions>
-                <ChampionsPopup />
+                <WorldChampionTableContainer />
+                <WinnersInYearDialogContainer />
             </div>
         </Provider>
     );

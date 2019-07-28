@@ -1,26 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import objectAssing from 'object-assign';
 import {
     requestAllChampions,
     requestNumberOfWorldChampions,
     openChampionsByYearPopup,
 } from '../../actions';
-import ChampionItem from '../presentational/ChampionItem';
-import componentStyles from './ChampionListStyles';
-import * as images from '../../assets/img';
+import WorldChampionItem from '../presentational/WorldChampionItem';
+import WorldChampionTableHeader from '../presentational/WorldChampionTableHeader';
+import WorldChampionsUtil from '../../utils/WorldChampionsUtil';
 
-const carImages = {
-    MERCEDES: images.teamCar2,
-    RENAULT: images.teamCar1,
-    MCLAREN: images.teamCar4,
-    FERRARI: images.teamCar3,
-    DEFAULT: images.teamCar5,
-};
-
-class ChampionList extends Component {
+class WorldChampionTableContainer extends Component {
     componentDidMount() {
         this.props.requestNumberOfChampions();
         this.props.requestAllChampions(2005, 2015);
@@ -32,9 +23,14 @@ class ChampionList extends Component {
         const allChampions = this.getChampionListFromMap(championListByYear);
 
         return (
-            <React.Fragment>
-                {allChampions}
-            </React.Fragment>
+            <div className='world-champions'>
+                <table>
+                    <tbody>
+                        <WorldChampionTableHeader />
+                        {allChampions}
+                    </tbody>
+                </table>
+            </div>
         );
     }
 
@@ -51,13 +47,13 @@ class ChampionList extends Component {
     getChampionListFromMap = (championsMap) => {
         const championList = [];
         championsMap.forEach((champion, index) => {
-            let championToBeAddedToList = <ChampionItem key={`ChampionItem-${index}`}/>;
+            let championToBeAddedToList = <WorldChampionItem key={`ChampionItem-${index}`}/>;
 
             if (champion !== null) {
-                const championByYear = this.getChampionViewModel(champion);
+                const championByYear = WorldChampionsUtil.getChampionViewModel(champion);
 
                 championToBeAddedToList = (
-                    <ChampionItem
+                    <WorldChampionItem
                         key={championByYear.key}
                         name={championByYear.driverName}
                         year={championByYear.season}
@@ -67,7 +63,7 @@ class ChampionList extends Component {
                         driverId={championByYear.driverId}
                         carImage={championByYear.carImage}
                         openChampionsByYearPopup={this.props.openChampionsByYearPopup} >
-                    </ChampionItem>
+                    </WorldChampionItem>
                 );
             }
 
@@ -75,54 +71,9 @@ class ChampionList extends Component {
         });
         return championList;
     }
-
-    getChampionViewModel(champion) {
-        const viewModel = {};
-
-        if (champion !== null) {
-            const { winner, season, points } = champion;
-
-            if (winner) {
-                const { Driver, Constructor } = winner;
-                if (Driver) {
-                    if (Driver.givenName) {
-                        viewModel.driverName = `${Driver.givenName} ${Driver.familyName}`;
-                    }
-                    if (winner.Driver.driverId) {
-                        viewModel.driverId = Driver.driverId;
-                    }
-                    if (winner.Driver.nationality) {
-                        viewModel.nationality = Driver.nationality;
-                    }
-                }
-                if (Constructor) {
-                    viewModel.team = Constructor.name;
-                    if (viewModel.team) {
-                        viewModel.carImage = this.getCarImageByTeam(viewModel.team);
-                    }
-                }
-            }
-            return {
-                ...viewModel,
-                winner,
-                season,
-                points,
-                key: season,
-            };
-        }
-
-        return null;
-    }
-
-    getCarImageByTeam = (teamName) => {
-        if (teamName && carImages[teamName.toUpperCase()]) {
-            return carImages[teamName.toUpperCase()];
-        }
-        return carImages.DEFAULT;
-    }
 }
 
-ChampionList.propTypes = {
+WorldChampionTableContainer.propTypes = {
     champions: PropTypes.object.isRequired,
     requestAllChampions: PropTypes.func.isRequired,
     requestNumberOfChampions: PropTypes.func,
@@ -139,7 +90,7 @@ const mapDispatchToProps = dispatch => ({
     openChampionsByYearPopup: (year, driverId) => dispatch(openChampionsByYearPopup(year, driverId)),
 });
 
-export default withStyles(componentStyles)(connect(
+export default connect(
     mapStateToProps,
     mapDispatchToProps,
-)(ChampionList));
+)(WorldChampionTableContainer);

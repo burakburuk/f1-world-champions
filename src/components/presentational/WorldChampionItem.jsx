@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import PropTypes from 'prop-types';
+import Button from './Button';
 
-class ChampionItem extends PureComponent {
+class WorldChampionItem extends PureComponent {
     render() {
         const {
             name,
@@ -43,11 +44,12 @@ class ChampionItem extends PureComponent {
                 </td>
                 <td>
                     <div className="ch-item">
-                        <a
-                            onClick={this.handleOpenChampionsByYearPopup}
-                            className="item-show-all-champions">
-                            Show all champions
-                        </a>
+                        <Button
+                            color={name ? 'primary' : 'disabled'}
+                            className="show-details"
+                            onClick={this.handleOpenChampionsByYearPopup}>
+                            Show details
+                        </Button>
                     </div>
                 </td>
             </tr>
@@ -62,7 +64,7 @@ class ChampionItem extends PureComponent {
     }
 }
 
-ChampionItem.propTypes = {
+WorldChampionItem.propTypes = {
     driverId: PropTypes.string,
     name: PropTypes.string,
     year: PropTypes.number,
@@ -73,4 +75,4 @@ ChampionItem.propTypes = {
     openChampionsByYearPopup: PropTypes.func,
 };
 
-export default ChampionItem;
+export default WorldChampionItem;
