@@ -1,5 +1,5 @@
 import {
-    takeEvery,
+    takeLatest,
     call,
     put,
     fork,
@@ -13,7 +13,7 @@ import {
 
 // handles dispatched champions get request and calls related method.
 export function* watchAllChampions() {
-    yield takeEvery(actionTypes.HANDLE_ALL_CHAMPIONS_REQUEST, requestWorldChampionsByDateRange);
+    yield takeLatest(actionTypes.HANDLE_ALL_CHAMPIONS_REQUEST, requestWorldChampionsByDateRange);
 }
 
 export function* fetchChamp(year) {

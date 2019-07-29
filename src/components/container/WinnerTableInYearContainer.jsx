@@ -2,22 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ChampionsByYearUtil from '../../utils/ChampionsByYearUtil';
-import WinnerInYearTableHeader from '../presentational/WinnerInYearTableHeader';
 import WinnerItemInYear from '../presentational/WinnerItemInYear';
+import WinnerTableInYear from '../presentational/WinnerTableInYear';
+
 
 class WinnerTableInYearContainer extends Component {
     render() {
         const championList = this.getRacerList();
 
         return (
-            <div className='winner-in-year'>
-                <table>
-                    <tbody>
-                        <WinnerInYearTableHeader />
-                        {championList}
-                    </tbody>
-                </table>
-            </div>
+            <WinnerTableInYear winners={championList} />
         );
     }
 

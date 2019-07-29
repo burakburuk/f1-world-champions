@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Skeleton from 'react-loading-skeleton';
+import { TableRow, TableCell } from './Table';
 
 const WinnerItemInYear = (props) => {
     const {
@@ -12,28 +13,20 @@ const WinnerItemInYear = (props) => {
     } = props;
 
     return (
-        <tr>
-            <td>
-                <div className="item-race">
-                    {race || <Skeleton/>}
-                </div>
-            </td>
-            <td>
-                <div className={highlight ? 'by-name-item-highlight' : 'by-driver'}>
-                    {name || <Skeleton/>}
-                </div>
-            </td>
-            <td>
-                <div className="by-item by-year-item item-date">
-                    {date || <Skeleton/>}
-                </div>
-            </td>
-            <td>
-                <div className="by-item by-year-item item-company">
-                    {company || <Skeleton/>}
-                </div>
-            </td>
-        </tr>
+        <TableRow>
+            <TableCell>
+                {race || <Skeleton/>}
+            </TableCell>
+            <TableCell textColor={highlight ? '#ec7373' : '#000000'}>
+                {name || <Skeleton/>}
+            </TableCell>
+            <TableCell>
+                {date || <Skeleton/>}
+            </TableCell>
+            <TableCell>
+                {company || <Skeleton/>}
+            </TableCell>
+        </TableRow>
     );
 };
 

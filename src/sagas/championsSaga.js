@@ -1,4 +1,4 @@
-import { takeEvery, call, put } from 'redux-saga/effects';
+import { takeLatest, call, put } from 'redux-saga/effects';
 import * as actionTypes from '../constants';
 import { fetchAllChampionsByYear } from '../services';
 import {
@@ -8,7 +8,7 @@ import {
 } from '../actions';
 
 export default function* watchOpenChampionsByYearPopup() {
-    yield takeEvery(actionTypes.HANDLE_OPEN_CHAMPIONS_BY_YEAR_POPUP, requestAllChampionsByYear);
+    yield takeLatest(actionTypes.HANDLE_OPEN_CHAMPIONS_BY_YEAR_POPUP, requestAllChampionsByYear);
 }
 
 function* requestAllChampionsByYear(action) {

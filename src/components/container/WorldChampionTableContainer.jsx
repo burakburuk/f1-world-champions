@@ -8,7 +8,7 @@ import {
     openChampionsByYearPopup,
 } from '../../actions';
 import WorldChampionItem from '../presentational/WorldChampionItem';
-import WorldChampionTableHeader from '../presentational/WorldChampionTableHeader';
+import WorldChampionTable from '../presentational/WorldChampionTable';
 import WorldChampionsUtil from '../../utils/WorldChampionsUtil';
 
 class WorldChampionTableContainer extends Component {
@@ -23,14 +23,7 @@ class WorldChampionTableContainer extends Component {
         const allChampions = this.getChampionListFromMap(championListByYear);
 
         return (
-            <div className='world-champions'>
-                <table>
-                    <tbody>
-                        <WorldChampionTableHeader />
-                        {allChampions}
-                    </tbody>
-                </table>
-            </div>
+            <WorldChampionTable champions={allChampions} />
         );
     }
 
