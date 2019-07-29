@@ -7,7 +7,6 @@ const StyledButton = styled.button`
     border: none;
     padding: 10px 20px;
     text-align: center;
-    font-size: 14px;
     cursor: pointer;
     color: ${props => (props.primary ? '#51a4de' : '#ffffff')};
     border-width: 1px;
