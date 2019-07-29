@@ -7,13 +7,17 @@ const StyledButton = styled.button`
     border: none;
     padding: 10px 20px;
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
-    color: white;
-    background-color: ${props => (props.primary ? '#51a4de' : '#ece9e9')};
+    color: ${props => (props.primary ? '#51a4de' : '#ffffff')};
+    border-width: 1px;
+    border-style: solid;
+    border-color: ${props => (props.primary ? '#51a4de' : '#ece9e9')};
+    background-color: ${props => (props.primary ? '#ffffff' : '#ece9e9')};
 
     &:hover {
         background-color: ${props => (props.primary ? '#3e82b1' : '')};
+        color: #ffffff;
     }
 `;
 
