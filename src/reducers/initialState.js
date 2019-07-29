@@ -1,4 +1,9 @@
 const initialState = {
+    notification: {
+        title: '',
+        message: '',
+        open: false,
+    },
     champions: {
         popupChampionsByYearOpen: false,
         numberOfChampionsInSeason: 0,

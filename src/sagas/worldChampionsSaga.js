@@ -9,6 +9,7 @@ import * as actionTypes from '../constants';
 import { fetchChampionByYear } from '../services';
 import {
     fetchChampComplete,
+    showNotificationBox,
 } from '../actions';
 
 // handles dispatched champions get request and calls related method.
@@ -17,14 +18,18 @@ export function* watchAllChampions() {
 }
 
 export function* fetchChamp(year) {
-    const { response, error } = yield call(() => fetchChampionByYear(year));
-    if (error) {
-        console.warn(`Error while fetching Champ${error}`);
-    } else if (response.MRData) {
-        const champion = findWorldChampionFromList(response.MRData.RaceTable.Races, year);
-        yield put(fetchChampComplete(champion, year));
-    } else {
-        console.warn('response.MRData is not defined!!');
+    try {
+        const { response, error } = yield call(() => fetchChampionByYear(year));
+        if (error) {
+            throw new Error(`Error while fetching Champ ${error}`);
+        } else if (response.MRData) {
+            const champion = findWorldChampionFromList(response.MRData.RaceTable.Races, year);
+            yield put(fetchChampComplete(champion, year));
+        } else {
+            throw new Error('response.MRData is not defined!!');
+        }
+    } catch (error) {
+        yield put(showNotificationBox({ title: 'Server Error', message: error.message }));
     }
 }
 
@@ -41,7 +46,7 @@ export function* requestWorldChampionsByDateRange(action) {
         }
         yield take(actionTypes.COMPLETE_ALL_CHAMPIONS_REQUEST);
     } catch (error) {
-        console.warn(error.message);
+        yield put(showNotificationBox({ title: 'Server Error', message: error.message }));
     }
 }
 

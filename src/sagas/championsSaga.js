@@ -5,6 +5,7 @@ import {
     startAllChampionsRequest,
     completeAllChampionByYearRequest,
     completeNumberOfChampionsInSeason,
+    showNotificationBox,
 } from '../actions';
 
 export default function* watchOpenChampionsByYearPopup() {
@@ -27,6 +28,6 @@ function* requestAllChampionsByYear(action) {
             throw new Error('Start and End parameters must be defined!');
         }
     } catch (error) {
-        console.warn(error.message);
+        yield put(showNotificationBox({ title: 'Server Error', message: error.message }));
     }
 }

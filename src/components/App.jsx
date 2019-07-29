@@ -3,9 +3,10 @@ import '../index.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
+import Bar from './Bar';
 import WorldChampionTableContainer from '../container/WorldChampionTableContainer';
 import WinnersInYearDialogContainer from '../container/WinnersInYearDialogContainer';
-import Bar from './Bar';
+import NotificationBoxContainer from '../container/NotificationBoxContainer';
 
 const App = (props) => {
     const { store } = props;
@@ -15,6 +16,7 @@ const App = (props) => {
                 <Bar/>
                 <WorldChampionTableContainer />
                 <WinnersInYearDialogContainer />
+                <NotificationBoxContainer />
             </div>
         </Provider>
     );
