@@ -1,8 +1,8 @@
-import '../../index.scss';
+import '../index.scss';
 
 import React from 'react';
 import styled from 'styled-components';
-import logo from '../../assets/img/logo.svg';
+import logo from '../assets/img/logo.svg';
 
 const StyledBar = styled.div`
     width: 100%;

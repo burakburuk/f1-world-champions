@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import App from './components/presentational/App';
+import App from './components/App';
 import initialState from './reducers/initialState';
 import configureStore from './store/configureStore';
 import rootSaga from './sagas';

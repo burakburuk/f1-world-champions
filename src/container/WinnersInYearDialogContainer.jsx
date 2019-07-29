@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import {
     closeChampionsByYearPopup,
     requestNumberOfChampionsInSeason,
-} from '../../actions';
-import WinnersInYearDialog from '../presentational/WinnersInYearDialog';
+} from '../actions';
+import WinnersInYearDialog from '../components/WinnersInYearDialog';
 
 class WinnersInYearDialogContainer extends Component {
     componentDidMount() {

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import ChampionsByYearUtil from '../../utils/ChampionsByYearUtil';
-import WinnerItemInYear from '../presentational/WinnerItemInYear';
-import WinnerTableInYear from '../presentational/WinnerTableInYear';
+import ChampionsByYearUtil from '../utils/ChampionsByYearUtil';
+import WinnerItemInYear from '../components/WinnerItemInYear';
+import WinnerTableInYear from '../components/WinnerTableInYear';
 
 
 class WinnerTableInYearContainer extends Component {

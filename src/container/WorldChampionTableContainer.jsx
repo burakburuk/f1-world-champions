@@ -6,10 +6,10 @@ import {
     requestAllChampions,
     requestNumberOfWorldChampions,
     openChampionsByYearPopup,
-} from '../../actions';
-import WorldChampionItem from '../presentational/WorldChampionItem';
-import WorldChampionTable from '../presentational/WorldChampionTable';
-import WorldChampionsUtil from '../../utils/WorldChampionsUtil';
+} from '../actions';
+import WorldChampionItem from '../components/WorldChampionItem';
+import WorldChampionTable from '../components/WorldChampionTable';
+import WorldChampionsUtil from '../utils/WorldChampionsUtil';
 
 class WorldChampionTableContainer extends Component {
     componentDidMount() {

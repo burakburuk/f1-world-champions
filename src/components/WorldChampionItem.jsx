@@ -37,7 +37,7 @@ class WorldChampionItem extends PureComponent {
                 <TableCell width={52}>
                     {points || <Skeleton />}
                 </TableCell>
-                <TableCell width={132}>
+                <TableCell width={140} align={'right'}>
                     <Button
                         primary={!!name}
                         className="show-details"
