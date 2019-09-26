@@ -1,8 +1,4 @@
-import '../index.scss';
-
-import React from 'react';
 import styled from 'styled-components';
-import logo from '../assets/img/logo.svg';
 
 const StyledBar = styled.div`
     width: 100%;
@@ -18,10 +14,4 @@ const StyledBar = styled.div`
     }
 `;
 
-const Bar = () => (
-    <StyledBar>
-        <span dangerouslySetInnerHTML={{ __html: logo }} />
-    </StyledBar>
-);
-
-export default Bar;
+export default StyledBar;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Skeleton from 'react-loading-skeleton';
-import { TableRow, TableCell } from './Table';
+import { TableRow, TableCell } from '../Table';
 
 const WinnerItemInYear = (props) => {
     const {

@@ -1,12 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-
-const StyledTableHead = styled.thead`
-    td {
-        font-weight: bold;
-    }
-`;
+import StyledTableHead from './StyledTableHead';
 
 const TableHead = props => (
     <StyledTableHead>

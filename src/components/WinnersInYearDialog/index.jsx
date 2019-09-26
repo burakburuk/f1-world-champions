@@ -4,8 +4,8 @@ import {
     Dialog,
     DialogContent,
     DialogTitle,
-} from './Dialog';
-import WinnerTableInYearContainer from '../container/WinnerTableInYearContainer';
+} from '../Dialog';
+import WinnerTableInYearContainer from '../../containers/WinnerTableInYearContainer';
 
 const WinnersInYearDialog = (props) => {
     const { open, selectedYear, onClose } = props;

@@ -1,6 +1,4 @@
 
-import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
@@ -20,18 +18,4 @@ const StyledButton = styled.button`
     }
 `;
 
-const Button = props => (
-    <StyledButton
-        primary={props.primary}
-        onClick={props.onClick} >
-        {props.children}
-    </StyledButton>
-);
-
-Button.propTypes = {
-    primary: PropTypes.bool,
-    onClick: PropTypes.func,
-    children: PropTypes.string.isRequired,
-};
-
-export default Button;
+export default StyledButton;

@@ -1,22 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-
-const StyledTableWrapper = styled.div`
-    width: 100%;
-
-    table {
-        border-spacing: 0;
-        width: 100%;
-    }
-`;
+import StyledTable from './StyledTable';
 
 const Table = props => (
-    <StyledTableWrapper>
+    <StyledTable>
         <table>
             {props.children}
         </table>
-    </StyledTableWrapper>
+    </StyledTable>
 );
 
 Table.propTypes = {

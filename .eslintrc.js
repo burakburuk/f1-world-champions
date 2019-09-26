@@ -28,6 +28,9 @@ module.exports = {
                 extensions: ['.js', '.jsx'],
             },
         },
+        react: {
+            version: '16.8',
+        },
     },
     parser: 'babel-eslint',
 };
