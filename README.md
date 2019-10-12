@@ -10,13 +10,13 @@ Redux-saga middleware is used for async operations instead of thunk since it use
 
 ## Dependencies and Dev-dependencies
 
-Nodejs and npm for development environment and package management.
-Webpack -> dependency management and bundling
-Babel -> transpiling to ES5
-Styled components -> CSS in JS.
-React -> main UI view library.
-Redux -> store and data management.
-Saga -> Async middleware.
+- Nodejs and npm for development environment and package management.
+- Webpack -> dependency management and bundling
+- Babel -> transpiling to ES5
+- Styled components -> CSS in JS.
+- React -> main UI view library.
+- Redux -> store and data management.
+- Saga -> Async middleware.
 
 All related task are described in the webpack.config.js
 
@@ -48,25 +48,28 @@ E2e Testing with cypress.io: Go into e2e-tests folder and run following command.
 
 ## Directories and Files Description
 
-package.json : Server-side dependencies.
+package.json : package dependencies.
 
 /application : Source Code
 
-/scripts/webpack.config.js: Webpack tasks are specified and described in there.
-/scripts/jest.init.js: Jest initial configurations.
+/scripts
 
-/application/actions: includes action creators for dispatching redux actions.
-/application/assets: External Files : images.
-/applicationlication/components: includes presentational components for rendering views.
-/application/constants: includes routes for server requests and action types for action creators.
-/applicationlication/containers: includes container components managing presentational components.
-/applicationlication/reducers: includes reducers for updating store.
-/applicationlication/sagas: includes sagas managing async operations.
-/applicationlication/services: includes services managing service calls and handling errors.
-/applicationlication/store: includes application state object.
-/applicationlication/utils: includes common utility functions.
-/application/index.html: entry html file for loading SPA.
-/application/index.js: entry javascript file.
-/application/index.scss: common scss file.
+- /webpack.config.js: Webpack tasks are specified and described in there.
+- /jest.init.js: Jest initial configurations.
 
-/application/dist: Distruibuition src code for production releases
+/application
+
+- /actions: includes action creators for dispatching redux actions.
+- /assets: External Files : images.
+- /components: includes presentational components for rendering views.
+- /constants: includes routes for server requests and action types for action creators.
+- /containers: includes container components managing presentational components.
+- /reducers: includes reducers for updating store.
+- /sagas: includes sagas managing async operations.
+- /services: includes services managing service calls and handling errors.
+- /store: includes application state object.
+- /utils: includes common utility functions.
+- /index.html: entry html file for loading SPA.
+- /index.js: entry javascript file.
+- /index.scss: common scss file.
+- /dist: Distruibuition src code for production releases
