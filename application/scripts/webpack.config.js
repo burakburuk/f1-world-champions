@@ -52,4 +52,8 @@ module.exports = {
             filename: './index.html',
         }),
     ],
+    devServer: {
+        compress: true,
+        port: 3000
+    },
 };

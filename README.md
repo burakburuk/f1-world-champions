@@ -1,6 +1,6 @@
 # README
 
-- F1 World Champions
+F1 World Champions
 
 This is a single page application that presents a list that shows the F1 world champions starting from 2005 until 2015 in descending order. When you click on an item on the list, it shows the list of the winners for every race for the selected year and also highlight the row when the winner has been the world champion in the same season.
 

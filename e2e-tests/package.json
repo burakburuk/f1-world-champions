@@ -4,8 +4,11 @@
   "description": "End to end tests for F1 application",
   "main": "src/index.js",
   "scripts": {
-    "start": "echo \"Error: start not implemented\" && exit 1"
+    "start": "cypress open"
   },
   "author": "Burak Buruk",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^3.4.1"
+  }
 }
