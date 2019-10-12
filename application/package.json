@@ -1,7 +1,10 @@
 {
   "name": "f1-world-champions",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "F1 application showing race and driver details between 2005 and 2015",
   "private": true,
+  "author": "Burak Buruk",
+  "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --config scripts/webpack.config.js --open --mode development",
     "build": "webpack --config scripts/webpack.config.js --mode production",

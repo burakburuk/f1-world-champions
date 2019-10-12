@@ -1,0 +1,11 @@
+{
+  "name": "f1-e2e-tests",
+  "version": "1.0.0",
+  "description": "End to end tests for F1 application",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "echo \"Error: start not implemented\" && exit 1"
+  },
+  "author": "Burak Buruk",
+  "license": "MIT"
+}
