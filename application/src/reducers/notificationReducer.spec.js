@@ -1,6 +1,6 @@
 import notificationReducer from './notificationReducer';
 import initialState from './initialState';
-import {showNotificationBox, closeNotificationBox} from '../actions/notificationActions';
+import {showNotificationBox, closeNotificationBox} from '../actions';
 
 describe('Given a notificiation reduver', () => {
 
