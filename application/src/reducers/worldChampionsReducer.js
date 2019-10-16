@@ -1,5 +1,6 @@
 import objectAssing from 'object-assign';
 import { updateObject, createReducer } from './reducerUtilities';
+import initialState from './initialState';
 
 const handleWorldChampsRequest = (worldChampionsState, action) => (
     updateObject(worldChampionsState, { startYear: action.startYear, endYear: action.endYear, isLoaded: false })
@@ -26,7 +27,7 @@ const completeAllChampsByYearRequest = (worldChampionsState, action) => (
 );
 
 // Slice reducer
-const worldChampionsReducer = createReducer([], {
+const worldChampionsReducer = createReducer(initialState.worldChampions, {
     HANDLE_ALL_CHAMPIONS_REQUEST: handleWorldChampsRequest,
     REQUEST_NUMBER_OF_WORLD_CHAMPIONS: requestNumOfWorldChamps,
     FETCH_CHAMPION_BY_YEAR_COMPLETE: fetchChampByYearComplete,

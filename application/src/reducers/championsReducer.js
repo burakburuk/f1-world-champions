@@ -1,4 +1,5 @@
 import { updateObject, createReducer } from './reducerUtilities';
+import initialState from './initialState';
 
 const requestNumOfChampsInSeason = (championsState, action) => updateObject(championsState, action);
 
@@ -21,7 +22,7 @@ const closeChampsByYearPopup = championsState => (
 );
 
 // Slice reducer
-const championsReducer = createReducer([], {
+const championsReducer = createReducer(initialState.champions, {
     REQUEST_NUMBER_OF_CHAMPIONS_IN_SEASON: requestNumOfChampsInSeason,
     COMPLETE_NUMBER_OF_CHAMPIONS_IN_SEASON: completeNumOfChampsInSeason,
     HANDLE_ALL_CHAMPIONS_REQUEST: handleAllChampsRequest,

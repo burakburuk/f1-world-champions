@@ -18,7 +18,7 @@ export const updateItemInArray = (array, itemId, updateItemCallback) => {
 };
 
 export const createReducer = (initialState, handlers) => function reducer(state = initialState, action) {
-    if (Object.prototype.hasOwnProperty.call(handlers, action.type)) {
+    if (action && action.type && Object.prototype.hasOwnProperty.call(handlers, action.type)) {
         return handlers[action.type](state, action);
     }
     return state;
