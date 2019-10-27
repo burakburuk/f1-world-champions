@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 import Roboto from '../font/Roboto-Regular.ttf';
 
 const GlobalStyle = createGlobalStyle`
