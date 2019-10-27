@@ -12,11 +12,11 @@ const App = (props) => {
     return (
         <Provider store={store}>
             <div>
+                <GlobalStyle />
                 <Bar/>
                 <WorldChampionTableContainer />
                 <WinnersInYearDialogContainer />
                 <NotificationBoxContainer />
-                <GlobalStyle />
             </div>
         </Provider>
     );
