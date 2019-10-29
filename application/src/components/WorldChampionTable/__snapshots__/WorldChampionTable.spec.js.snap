@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match with snapshot 1`] = `
+<styled.div
+  data-id="world-champion-table"
+>
+  <Table>
+    <TableHead>
+      <TableRow>
+        <TableCell>
+          Year
+        </TableCell>
+        <TableCell>
+          Driver
+        </TableCell>
+        <TableCell>
+          Nationality
+        </TableCell>
+        <TableCell>
+          Team
+        </TableCell>
+        <TableCell>
+          Points
+        </TableCell>
+        <TableCell />
+      </TableRow>
+    </TableHead>
+    <TableBody />
+  </Table>
+</styled.div>
+`;

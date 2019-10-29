@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match with snapshot 1`] = `
+<styled.div
+  data-id="notification"
+  open={true}
+>
+  <styled.div>
+    <span
+      className="close"
+    >
+      ×
+    </span>
+    <h2>
+      test title
+    </h2>
+  </styled.div>
+</styled.div>
+`;

@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match with snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <div>
+    <GlobalStyleComponent />
+    <Bar />
+    <Connect(WorldChampionTableContainer) />
+    <Connect(WinnersInYearDialogContainer) />
+    <Connect(NotificationBoxContainer) />
+  </div>
+</Provider>
+`;

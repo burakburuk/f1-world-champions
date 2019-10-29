@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import objectAssing from 'object-assign';
-import {
-    requestAllChampions,
-    requestNumberOfWorldChampions,
-    openChampionsByYearPopup,
-} from '../actions';
-import WorldChampionItem from '../components/WorldChampionItem';
-import WorldChampionTable from '../components/WorldChampionTable';
-import WorldChampionsUtil from '../utils/WorldChampionsUtil';
+import WorldChampionItem from '../../components/WorldChampionItem';
+import WorldChampionTable from '../../components/WorldChampionTable';
+import WorldChampionsUtil from '../../utils/WorldChampionsUtil';
 
 class WorldChampionTableContainer extends Component {
     componentDidMount() {
@@ -73,17 +67,4 @@ WorldChampionTableContainer.propTypes = {
     openChampionsByYearPopup: PropTypes.func,
 };
 
-const mapStateToProps = state => ({
-    champions: state.worldChampions,
-});
-
-const mapDispatchToProps = dispatch => ({
-    requestAllChampions: (start, end) => dispatch(requestAllChampions(start, end)),
-    requestNumberOfChampions: () => dispatch(requestNumberOfWorldChampions()),
-    openChampionsByYearPopup: (year, driverId) => dispatch(openChampionsByYearPopup(year, driverId)),
-});
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(WorldChampionTableContainer);
+export default WorldChampionTableContainer;

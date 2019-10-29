@@ -5,6 +5,7 @@ import StyledHeader from './StyledHeader';
 
 const NotificationBox = props => (
     <StyledNotificationBox
+        data-id="notification"
         open={props.open}>
         <StyledHeader>
             <span

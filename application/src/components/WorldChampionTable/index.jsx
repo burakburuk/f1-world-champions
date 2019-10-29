@@ -12,7 +12,9 @@ import StyledWorldChampionTable from './StyledWorldChampionTable';
 
 
 const WorldChampionTable = props => (
-    <StyledWorldChampionTable>
+    <StyledWorldChampionTable
+        data-id="world-champion-table"
+        >
         <Table>
             <TableHead>
                 <TableRow>

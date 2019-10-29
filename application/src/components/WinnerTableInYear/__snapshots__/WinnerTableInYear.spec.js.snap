@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match with snapshot 1`] = `
+<styled.div>
+  <Table>
+    <TableHead>
+      <TableRow>
+        <TableCell>
+          Race
+        </TableCell>
+        <TableCell>
+          Driver
+        </TableCell>
+        <TableCell>
+          Date
+        </TableCell>
+        <TableCell>
+          Team
+        </TableCell>
+      </TableRow>
+    </TableHead>
+    <TableBody />
+  </Table>
+</styled.div>
+`;

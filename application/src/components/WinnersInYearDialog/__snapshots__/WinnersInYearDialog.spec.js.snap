@@ -1,3 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should match with snapshot 1`] = `ShallowWrapper {}`;
+exports[`should match with snapshot 1`] = `
+<Dialog
+  data-id="winners-dialog"
+  open={false}
+>
+  <DialogContent
+    width={800}
+  >
+    <DialogTitle>
+      Champions of undefined
+    </DialogTitle>
+    <Connect(WinnerTableInYearContainer) />
+  </DialogContent>
+</Dialog>
+`;

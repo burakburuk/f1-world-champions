@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import ChampionsByYearUtil from '../utils/ChampionsByYearUtil';
-import WinnerItemInYear from '../components/WinnerItemInYear';
-import WinnerTableInYear from '../components/WinnerTableInYear';
+import ChampionsByYearUtil from '../../utils/ChampionsByYearUtil';
+import WinnerItemInYear from '../../components/WinnerItemInYear';
+import WinnerTableInYear from '../../components/WinnerTableInYear';
 
 
 class WinnerTableInYearContainer extends Component {
@@ -46,10 +45,4 @@ WinnerTableInYearContainer.propTypes = {
     selectedDriverId: PropTypes.string,
 };
 
-const mapStateToProps = state => ({
-    listByYear: state.champions.listByYear,
-    numberOfChampionsInSeason: state.champions.numberOfChampionsInSeason,
-    selectedDriverId: state.champions.selectedDriverId,
-});
-
-export default connect(mapStateToProps)(WinnerTableInYearContainer);
+export default WinnerTableInYearContainer;

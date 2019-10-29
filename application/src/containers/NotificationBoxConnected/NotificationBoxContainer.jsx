@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import NotificationBox from '../components/NotificationBox';
-import { closeNotificationBox } from '../actions';
+import NotificationBox from '../../components/NotificationBox';
 
 class NotificationBoxContainer extends Component {
     render() {
         const { open, message, title } = this.props;
+        
         return (
             <NotificationBox
                 open={open}
@@ -29,17 +28,4 @@ NotificationBoxContainer.propTypes = {
     onClose: PropTypes.func,
 };
 
-const mapStateToProps = state => ({
-    open: state.notification.open,
-    title: state.notification.title,
-    message: state.notification.message,
-});
-
-const mapDispatchToProps = dispatch => ({
-    onClose: e => dispatch(closeNotificationBox(e)),
-});
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(NotificationBoxContainer);
+export default NotificationBoxContainer;

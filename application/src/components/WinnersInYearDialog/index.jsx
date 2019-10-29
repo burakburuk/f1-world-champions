@@ -5,19 +5,20 @@ import {
     DialogContent,
     DialogTitle,
 } from '../Dialog';
-import WinnerTableInYearContainer from '../../containers/WinnerTableInYearContainer';
+import WinnerTableInYearConnected from '../../containers/WinnerTableInYearConnected';
 
 const WinnersInYearDialog = (props) => {
     const { open, selectedYear, onClose } = props;
     return (
         <Dialog
+            data-id="winners-dialog"
             open={!!open}>
             <DialogContent
                 width={800}>
                 <DialogTitle onClose={onClose}>
                     {`Champions of ${selectedYear}`}
                 </DialogTitle>
-                <WinnerTableInYearContainer/>
+                <WinnerTableInYearConnected/>
             </DialogContent>
         </Dialog>
     );

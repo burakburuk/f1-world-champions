@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import {
-    closeChampionsByYearPopup,
-    requestNumberOfChampionsInSeason,
-} from '../actions';
-import WinnersInYearDialog from '../components/WinnersInYearDialog';
+import WinnersInYearDialog from '../../components/WinnersInYearDialog';
 
 class WinnersInYearDialogContainer extends Component {
     componentDidMount() {
@@ -35,17 +30,4 @@ WinnersInYearDialogContainer.propTypes = {
     selectedYear: PropTypes.number.isRequired,
 };
 
-const mapStateToProps = state => ({
-    open: state.champions.popupChampionsByYearOpen,
-    selectedYear: state.champions.selectedYear,
-});
-
-const mapDispatchToProps = dispatch => ({
-    requestNumberOfChampionsInSeason: e => dispatch(requestNumberOfChampionsInSeason(e)),
-    onClose: e => dispatch(closeChampionsByYearPopup(e)),
-});
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(WinnersInYearDialogContainer);
+export default WinnersInYearDialogContainer;

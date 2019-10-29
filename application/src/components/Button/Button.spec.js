@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import WinnersInYearDialog from './';
+import Button from './';
 
 it('should match with snapshot', () => {
-    const wrapper = shallow(<WinnersInYearDialog />);
+    const wrapper = shallow(<Button>Test button</Button>);
     expect(wrapper).toMatchSnapshot();
 });

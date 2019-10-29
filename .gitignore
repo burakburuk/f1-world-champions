@@ -1,5 +1,6 @@
 .idea/
 .vscode/
+coverage/
 
 # misc
 .DS_Store

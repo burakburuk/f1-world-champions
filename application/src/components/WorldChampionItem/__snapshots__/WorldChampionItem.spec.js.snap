@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match with snapshot 1`] = `
+<TableRow>
+  <TableCell
+    width={70}
+  >
+    <styled.div>
+      <Skeleton
+        count={1}
+        duration={1.2}
+        width={null}
+        wrapper={null}
+      />
+    </styled.div>
+  </TableCell>
+  <TableCell>
+    <Skeleton
+      count={1}
+      duration={1.2}
+      width={null}
+      wrapper={null}
+    />
+  </TableCell>
+  <TableCell>
+    <Skeleton
+      count={1}
+      duration={1.2}
+      width={null}
+      wrapper={null}
+    />
+  </TableCell>
+  <TableCell>
+    <styled.div>
+      <Skeleton
+        count={1}
+        duration={1.2}
+        width={null}
+        wrapper={null}
+      />
+    </styled.div>
+  </TableCell>
+  <TableCell
+    width={52}
+  >
+    <Skeleton
+      count={1}
+      duration={1.2}
+      width={null}
+      wrapper={null}
+    />
+  </TableCell>
+  <TableCell
+    align="right"
+    width={140}
+  >
+    <Styled(Button)
+      onClick={[Function]}
+      primary={false}
+    >
+      Show details
+    </Styled(Button)>
+  </TableCell>
+</TableRow>
+`;

@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match with snapshot 1`] = `
+<TableRow>
+  <TableCell>
+    <Skeleton
+      count={1}
+      duration={1.2}
+      width={null}
+      wrapper={null}
+    />
+  </TableCell>
+  <TableCell
+    textColor="#000000"
+  >
+    <Skeleton
+      count={1}
+      duration={1.2}
+      width={null}
+      wrapper={null}
+    />
+  </TableCell>
+  <TableCell>
+    <Skeleton
+      count={1}
+      duration={1.2}
+      width={null}
+      wrapper={null}
+    />
+  </TableCell>
+  <TableCell>
+    <Skeleton
+      count={1}
+      duration={1.2}
+      width={null}
+      wrapper={null}
+    />
+  </TableCell>
+</TableRow>
+`;
