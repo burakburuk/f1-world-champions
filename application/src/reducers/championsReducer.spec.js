@@ -7,7 +7,7 @@ import {
 import championsReducer from './championsReducer';
 import initialState from './initialState';
 
-describe('Given championsReducer', () => {
+describe('Given champions reducer', () => {
     describe('when calling reducer with state and action undefined', () => {
         it('should return initial champion state', () => {
             const newState = championsReducer(undefined, undefined);

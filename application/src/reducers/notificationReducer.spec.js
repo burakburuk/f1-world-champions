@@ -13,11 +13,11 @@ describe('Given notificiation reducer', () => {
 
     describe('when reducer called with show notification action', () => {
         it('should return state with test notification', () => {
-            const notification = { title: 'Test', message: 'Test Message' };
-            const action = notification.show(notification);
+            const notificationObj = { title: 'Test', message: 'Test Message' };
+            const action = notification.show(notificationObj);
             const actual = notificationReducer(undefined, action);
-            expect(actual.title).toEqual(notification.title);
-            expect(actual.message).toEqual(notification.message);
+            expect(actual.title).toEqual(notificationObj.title);
+            expect(actual.message).toEqual(notificationObj.message);
         });
     });
 

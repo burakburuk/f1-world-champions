@@ -6,7 +6,7 @@ import {
 import worldChampionsReducer from './worldChampionsReducer';
 import initialState from './initialState';
 
-describe('Given worldChampionsReducer', () => {
+describe('Given world champions reducer', () => {
     describe('when calling reducer with state and action undefined', () => {
         it('should return initial world champion state', () => {
             const newState = worldChampionsReducer(undefined, undefined);
