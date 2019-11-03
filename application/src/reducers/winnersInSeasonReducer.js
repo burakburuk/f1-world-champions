@@ -18,7 +18,7 @@ const completeAllChampsByYearRequest = (championsState, action) => (
 const closeChampsByYearPopup = (championsState, action) => updateObject(championsState, action);
 
 // Slice reducer
-const championsReducer = createReducer(initialState.champions, {
+const winnersInSeasonReducer = createReducer(initialState.champions, {
     REQUEST_NUMBER_OF_CHAMPIONS_IN_SEASON: requestNumOfChampsInSeason,
     COMPLETE_NUMBER_OF_CHAMPIONS_IN_SEASON: completeNumOfChampsInSeason,
     START_ALL_CHAMPIONS_BY_YEAR_REQUEST: startAllChampsByYearRequest,
@@ -26,4 +26,4 @@ const championsReducer = createReducer(initialState.champions, {
     CLOSE_CHAMPIONS_BY_YEAR_POPUP: closeChampsByYearPopup,
 });
 
-export default championsReducer;
+export default winnersInSeasonReducer;

@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import championsReducer from './championsReducer';
+import winnersInSeasonReducer from './winnersInSeasonReducer';
 import worldChampionsReducer from './worldChampionsReducer';
 import notificationReducer from './notificationReducer';
 
 const rootReducer = combineReducers({
-    champions: championsReducer,
+    champions: winnersInSeasonReducer,
     worldChampions: worldChampionsReducer,
     notification: notificationReducer,
 });
