@@ -22,17 +22,12 @@ const startAllChampsByYearRequest = (worldChampionsState, action) => updateObjec
     listByYear: [],
 });
 
-const completeAllChampsByYearRequest = (worldChampionsState, action) => (
-    updateObject(worldChampionsState, { listByYear: action.champions, selectedDriverId: action.selectedDriverId })
-);
-
 // Slice reducer
 const worldChampionsReducer = createReducer(initialState.worldChampions, {
     HANDLE_ALL_CHAMPIONS_REQUEST: handleWorldChampsRequest,
     REQUEST_NUMBER_OF_WORLD_CHAMPIONS: requestNumOfWorldChamps,
     FETCH_CHAMPION_BY_YEAR_COMPLETE: fetchChampByYearComplete,
     START_ALL_CHAMPIONS_BY_YEAR_REQUEST: startAllChampsByYearRequest,
-    COMPLETE_ALL_CHAMPIONS_BY_YEAR_REQUEST: completeAllChampsByYearRequest,
 });
 
 export default worldChampionsReducer;

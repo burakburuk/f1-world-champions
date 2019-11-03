@@ -11,6 +11,7 @@ export function openChampionsByYearPopup(year, selectedDriverId) {
 export function closeChampionsByYearPopup() {
     return {
         type: actionTypes.CLOSE_CHAMPIONS_BY_YEAR_POPUP,
+        popupChampionsByYearOpen: false,
     };
 }
 
@@ -19,6 +20,8 @@ export function startAllChampionsRequest(selectedYear, selectedDriver) {
         type: actionTypes.START_ALL_CHAMPIONS_BY_YEAR_REQUEST,
         selectedYear,
         selectedDriver,
+        listByYear: [],
+        popupChampionsByYearOpen: true,
     };
 }
 

@@ -17,9 +17,7 @@ const completeAllChampsByYearRequest = (championsState, action) => (
     updateObject(championsState, { listByYear: action.champions, selectedDriverId: action.selectedDriverId })
 );
 
-const closeChampsByYearPopup = championsState => (
-    updateObject(championsState, { popupChampionsByYearOpen: false })
-);
+const closeChampsByYearPopup = (championsState, action) => updateObject(championsState, action);
 
 // Slice reducer
 const championsReducer = createReducer(initialState.champions, {
