@@ -1,4 +1,4 @@
-const ChampionsByYearUtil = {
+const winnersInSeasonUtil = {
     getChampionViewModel: function(champion, selectedDriverId) {
         if (champion) {
             const winner = champion.Results[0];
@@ -25,4 +25,4 @@ const ChampionsByYearUtil = {
     }
 }
 
-export default ChampionsByYearUtil;
+export default winnersInSeasonUtil;

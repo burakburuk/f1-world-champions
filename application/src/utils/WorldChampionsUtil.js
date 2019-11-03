@@ -8,7 +8,7 @@ const carImages = {
     DEFAULT: images.teamCar5,
 };
 
-const WorldChampionsUtil = {
+const worldChampionsUtil = {
     getChampionViewModel: function(champion) {
         const viewModel = {};
 
@@ -31,7 +31,7 @@ const WorldChampionsUtil = {
                 if (Constructor) {
                     viewModel.team = Constructor.name;
                     if (viewModel.team) {
-                        viewModel.carImage = WorldChampionsUtil.getCarImageByTeam(viewModel.team);
+                        viewModel.carImage = worldChampionsUtil.getCarImageByTeam(viewModel.team);
                     }
                 }
             }
@@ -54,4 +54,4 @@ const WorldChampionsUtil = {
     }
 }
 
-export default WorldChampionsUtil;
+export default worldChampionsUtil;

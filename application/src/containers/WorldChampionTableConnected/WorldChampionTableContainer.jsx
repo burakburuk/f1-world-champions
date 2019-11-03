@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import objectAssing from 'object-assign';
 import WorldChampionItem from '../../components/WorldChampionItem';
 import WorldChampionTable from '../../components/WorldChampionTable';
-import WorldChampionsUtil from '../../utils/WorldChampionsUtil';
+import worldChampionsUtil from '../../utils/worldChampionsUtil';
 
 class WorldChampionTableContainer extends Component {
     componentDidMount() {
@@ -37,7 +37,7 @@ class WorldChampionTableContainer extends Component {
             let championToBeAddedToList = <WorldChampionItem key={`ChampionItem-${index}`}/>;
 
             if (champion !== null) {
-                const championByYear = WorldChampionsUtil.getChampionViewModel(champion);
+                const championByYear = worldChampionsUtil.getChampionViewModel(champion);
 
                 championToBeAddedToList = (
                     <WorldChampionItem

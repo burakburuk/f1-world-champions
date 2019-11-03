@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ChampionsByYearUtil from '../../utils/ChampionsByYearUtil';
+import winnersInSeasonUtil from '../../utils/winnersInSeasonUtil';
 import WinnerItemInYear from '../../components/WinnerItemInYear';
 import WinnerTableInYear from '../../components/WinnerTableInYear';
 
@@ -18,7 +18,7 @@ class WinnerTableInYearContainer extends Component {
         const { listByYear, numberOfChampionsInSeason, selectedDriverId } = this.props;
         const itemList = [];
         for (let i = 0; i < numberOfChampionsInSeason; i++) {
-            const racer = ChampionsByYearUtil.getChampionViewModel(listByYear[i], selectedDriverId);
+            const racer = winnersInSeasonUtil.getChampionViewModel(listByYear[i], selectedDriverId);
             if (racer) {
                 itemList.push(
                     <WinnerItemInYear
