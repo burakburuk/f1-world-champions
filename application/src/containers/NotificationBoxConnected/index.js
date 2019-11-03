@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { notification } from '../../actions';
+import { manageNotification } from '../../actions';
 import NotificationBoxContainer from './NotificationBoxContainer';
 
 const mapStateToProps = state => ({
@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    onClose: e => dispatch(notification.close(e)),
+    onClose: e => dispatch(manageNotification.close(e)),
 });
 
 const NotificationBoxConnected = connect(

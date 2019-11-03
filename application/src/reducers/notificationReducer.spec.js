@@ -1,6 +1,6 @@
 import notificationReducer from './notificationReducer';
 import initialState from './initialState';
-import { notification } from '../actions';
+import { manageNotification } from '../actions';
 
 describe('Given notificiation reducer', () => {
     describe('when reducer called without state', () => {
@@ -13,17 +13,17 @@ describe('Given notificiation reducer', () => {
 
     describe('when reducer called with show notification action', () => {
         it('should return state with test notification', () => {
-            const notificationObj = { title: 'Test', message: 'Test Message' };
-            const action = notification.show(notificationObj);
+            const notification = { title: 'Test', message: 'Test Message' };
+            const action = manageNotification.show(notification);
             const actual = notificationReducer(undefined, action);
-            expect(actual.title).toEqual(notificationObj.title);
-            expect(actual.message).toEqual(notificationObj.message);
+            expect(actual.title).toEqual(notification.title);
+            expect(actual.message).toEqual(notification.message);
         });
     });
 
     describe('when reducer called with close notification action', () => {
         it('should return initial state', () => {
-            const action = notification.close();
+            const action = manageNotification.close();
             const actual = notificationReducer(undefined, action);
             const expected = initialState.notification;
             expect(actual).toEqual(expected);

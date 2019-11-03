@@ -1,12 +1,15 @@
-export * from './championsActions';
-import fetchNumberOfChampionsInSeason from './fetchNumberOfChampionsInSeason';
-import notification from './notification';
-import winnersInYearPopup from './winnersInYearPopup';
-import fetchWinnersInYear from './fetchWinnersInYear';
+import fetchNumberOfWorldChampions from './fetchNumberOfWorldChampions';
+import manageNotification from './manageNotification';
+import winnersInSeasonPopup from './winnersInSeasonPopup';
+import fetchWinnersInSeason from './fetchWinnersInSeason';
+import fetchWorldChampions from './fetchWorldChampions';
+import fetchNumberOfWinnersInSeason from './fetchNumberOfWinnersInSeason';
 
 export {
-    fetchNumberOfChampionsInSeason,
-    fetchWinnersInYear,
-    notification,
-    winnersInYearPopup,
+    fetchNumberOfWorldChampions,
+    fetchWinnersInSeason,
+    fetchWorldChampions,
+    fetchNumberOfWinnersInSeason,
+    manageNotification,
+    winnersInSeasonPopup,
 };

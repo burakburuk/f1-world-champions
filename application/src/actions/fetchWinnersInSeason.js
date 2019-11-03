@@ -1,6 +1,6 @@
 import * as actionTypes from '../constants';
 
-const fetchWinnersInYear = {
+const fetchWinnersInSeason = {
     start: function(selectedYear, selectedDriver) {
         return {
             type: actionTypes.START_ALL_CHAMPIONS_BY_YEAR_REQUEST,
@@ -19,4 +19,4 @@ const fetchWinnersInYear = {
     }
 }
 
-export default fetchWinnersInYear;
+export default fetchWinnersInSeason;

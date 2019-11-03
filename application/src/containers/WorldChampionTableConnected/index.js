@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import {
-    requestAllChampions,
-    fetchNumberOfChampionsInSeason,
-    winnersInYearPopup,
+    fetchWorldChampions,
+    fetchNumberOfWorldChampions,
+    winnersInSeasonPopup,
 } from '../../actions';
 import WorldChampionTableContainer from './WorldChampionTableContainer';
 
@@ -11,9 +11,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    requestAllChampions: (start, end) => dispatch(requestAllChampions(start, end)),
-    requestNumberOfChampions: () => dispatch(fetchNumberOfChampionsInSeason.start()),
-    openChampionsByYearPopup: (year, driverId) => dispatch(winnersInYearPopup.open(year, driverId)),
+    requestAllChampions: (start, end) => dispatch(fetchWorldChampions.start(start, end)),
+    requestNumberOfChampions: () => dispatch(fetchNumberOfWorldChampions.start()),
+    openChampionsByYearPopup: (year, driverId) => dispatch(winnersInSeasonPopup.open(year, driverId)),
 });
 
 const WorldChampionTableConnected = connect(

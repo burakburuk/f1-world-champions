@@ -1,6 +1,6 @@
 import * as actionTypes from '../constants';
 
-const fetchNumberOfChampionsInSeason = {
+const fetchNumberOfWorldChampions = {
     start: function() {
         return {
             type: actionTypes.REQUEST_NUMBER_OF_WORLD_CHAMPIONS,
@@ -15,4 +15,4 @@ const fetchNumberOfChampionsInSeason = {
     }
 }
 
-export default fetchNumberOfChampionsInSeason;
+export default fetchNumberOfWorldChampions;

@@ -8,8 +8,8 @@ import {
 import * as actionTypes from '../constants';
 import { fetchChampionByYear } from '../services';
 import {
-    fetchChampComplete,
-    notification,
+    fetchWorldChampions,
+    manageNotification,
 } from '../actions';
 
 // handles dispatched champions get request and calls related method.
@@ -24,12 +24,12 @@ export function* fetchChamp(year) {
             throw new Error(`Error while fetching Champ ${error}`);
         } else if (response.MRData) {
             const champion = findWorldChampionFromList(response.MRData.RaceTable.Races, year);
-            yield put(fetchChampComplete(champion, year));
+            yield put(fetchWorldChampions.storeData(champion, year));
         } else {
             throw new Error('response.MRData is not defined!!');
         }
     } catch (error) {
-        yield put(notification.show({ title: 'Server Error', message: error.message }));
+        yield put(manageNotification.show({ title: 'Server Error', message: error.message }));
     }
 }
 

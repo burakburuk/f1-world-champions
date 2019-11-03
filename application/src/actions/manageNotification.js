@@ -1,6 +1,6 @@
 import * as actionTypes from '../constants';
 
-const notification = {
+const manageNotification = {
     show: function({ title, message }) {
         return {
             type: actionTypes.SHOW_NOTIFICATION,
@@ -15,4 +15,4 @@ const notification = {
     }
 }
 
-export default notification;
+export default manageNotification;

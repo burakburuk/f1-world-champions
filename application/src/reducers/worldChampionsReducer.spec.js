@@ -1,7 +1,7 @@
 import {
-    requestAllChampions,
-    fetchNumberOfChampionsInSeason,
-    fetchChampComplete,
+    fetchWorldChampions,
+    fetchNumberOfWorldChampions,
+    fetchWorldChampions,
 } from '../actions';
 import worldChampionsReducer from './worldChampionsReducer';
 import initialState from './initialState';
@@ -16,7 +16,7 @@ describe('Given world champions reducer', () => {
 
     describe('when requesting all champions in between years', () => {
         it('should return updated world champion state', () => {
-            const action = requestAllChampions(2005, 2006);
+            const action = fetchWorldChampions.start(2005, 2006);
             const newState = worldChampionsReducer(undefined, action);
             const expected = {
                 ...initialState.worldChampions,
@@ -29,7 +29,7 @@ describe('Given world champions reducer', () => {
 
     describe('when requesting number of world champions', () => {
         it('should return updated world champion state', () => {
-            const action = fetchNumberOfChampionsInSeason.start();
+            const action = fetchNumberOfWorldChampions.start();
             const newState = worldChampionsReducer(undefined, action);
             const expected = {
                 ...initialState.worldChampions,
@@ -41,7 +41,7 @@ describe('Given world champions reducer', () => {
 
     describe('when completing world champions request', () => {
         it('should return updated world champion state', () => {
-            const action = fetchChampComplete([], 2011);
+            const action = fetchWorldChampions.storeData([], 2011);
             const newState = worldChampionsReducer(undefined, action);
             const expected = {
                 ...initialState.worldChampions,
