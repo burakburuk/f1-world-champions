@@ -5,9 +5,10 @@ import {
     winnersInSeasonPopup,
 } from '../../actions';
 import WorldChampionTableContainer from './WorldChampionTableContainer';
+import { worldChampionsSelector } from '../../selectors';
 
 const mapStateToProps = state => ({
-    champions: state.worldChampions,
+    champions: worldChampionsSelector.all(state),
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import { manageNotification } from '../../actions';
 import NotificationBoxContainer from './NotificationBoxContainer';
+import { notificationSelector } from '../../selectors';
 
 const mapStateToProps = state => ({
-    open: state.notification.open,
-    title: state.notification.title,
-    message: state.notification.message,
+    open: notificationSelector.open(state),
+    title: notificationSelector.title(state),
+    message: notificationSelector.message(state),
 });
 
 const mapDispatchToProps = dispatch => ({
