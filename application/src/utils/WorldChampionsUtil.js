@@ -8,8 +8,8 @@ const carImages = {
     DEFAULT: images.teamCar5,
 };
 
-export default class WorldChampionsUtil {
-    static getChampionViewModel(champion) {
+const WorldChampionsUtil = {
+    getChampionViewModel: function(champion) {
         const viewModel = {};
 
         if (champion !== null) {
@@ -45,12 +45,13 @@ export default class WorldChampionsUtil {
         }
 
         return null;
-    }
-
-    static getCarImageByTeam = (teamName) => {
+    },
+    getCarImageByTeam: (teamName) => {
         if (teamName && carImages[teamName.toUpperCase()]) {
             return carImages[teamName.toUpperCase()];
         }
         return carImages.DEFAULT;
     }
 }
+
+export default WorldChampionsUtil;

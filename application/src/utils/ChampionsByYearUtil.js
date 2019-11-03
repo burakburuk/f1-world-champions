@@ -1,5 +1,5 @@
-export default class ChampionsByYearUtil {
-    static getChampionViewModel(champion, selectedDriverId) {
+const ChampionsByYearUtil = {
+    getChampionViewModel: function(champion, selectedDriverId) {
         if (champion) {
             const winner = champion.Results[0];
             const { driverId } = winner.Driver;
@@ -24,3 +24,5 @@ export default class ChampionsByYearUtil {
         return null;
     }
 }
+
+export default ChampionsByYearUtil;
