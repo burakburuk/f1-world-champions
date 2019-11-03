@@ -1,4 +1,4 @@
-import * as images from '../assets/img';
+import * as images from '../../assets/img';
 
 const carImages = {
     MERCEDES: images.teamCar2,

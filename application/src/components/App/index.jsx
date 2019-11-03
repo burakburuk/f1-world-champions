@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import Bar from '../Bar';
-import GlobalStyle from '../../assets/style/GlobalStyle';
+import GlobalStyle from '../../../assets/style/GlobalStyle';
 import WorldChampionTableConnected from '../../containers/WorldChampionTableConnected';
 import WinnersInYearDialogConnected from '../../containers/WinnersInYearDialogConnected';
 import NotificationBoxConnected from '../../containers/NotificationBoxConnected';
