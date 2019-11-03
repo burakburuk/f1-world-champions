@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import winnersInSeasonUtil from '../../utils/winnersInSeasonUtil';
+import { winnersInSeasonUtil } from '../../utils';
 import WinnerItemInYear from '../../components/WinnerItemInYear';
 import WinnerTableInYear from '../../components/WinnerTableInYear';
 

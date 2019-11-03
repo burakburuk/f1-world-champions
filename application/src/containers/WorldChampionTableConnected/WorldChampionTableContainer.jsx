@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import objectAssing from 'object-assign';
 import WorldChampionItem from '../../components/WorldChampionItem';
 import WorldChampionTable from '../../components/WorldChampionTable';
-import worldChampionsUtil from '../../utils/worldChampionsUtil';
+import { worldChampionsUtil } from '../../utils';
 
 class WorldChampionTableContainer extends Component {
     componentDidMount() {
