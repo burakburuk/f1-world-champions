@@ -11,7 +11,7 @@ describe('Given winners in season reducer', () => {
     describe('when calling reducer with state and action undefined', () => {
         it('should return initial champion state', () => {
             const newState = winnersInSeasonReducer(undefined, undefined);
-            expect(newState).toEqual(initialState.champions);
+            expect(newState).toEqual(initialState.winnersInSeason);
         });
     });
 
@@ -19,7 +19,7 @@ describe('Given winners in season reducer', () => {
         it('should return updated champion state', () => {
             const action = fetchNumberOfWinnersInSeason.start();
             const newState = winnersInSeasonReducer(undefined, action);
-            const expected = { ...initialState.champions, numberOfChampionsInSeason: 19 };
+            const expected = { ...initialState.winnersInSeason, numberOfChampionsInSeason: 19 };
             expect(newState).toEqual(expected);
         });
     });
@@ -28,7 +28,7 @@ describe('Given winners in season reducer', () => {
         it('should return updated champion state', () => {
             const action = fetchNumberOfWorldChampions.storeData(10);
             const newState = winnersInSeasonReducer(undefined, action);
-            const expected = { ...initialState.champions, numberOfChampionsInSeason: 10 };
+            const expected = { ...initialState.winnersInSeason, numberOfChampionsInSeason: 10 };
             expect(newState).toEqual(expected);
         });
     });
@@ -38,7 +38,7 @@ describe('Given winners in season reducer', () => {
             const action = fetchWinnersInSeason.start(2005, 2006);
             const newState = winnersInSeasonReducer(undefined, action);
             const expected = { 
-                ...initialState.champions,
+                ...initialState.winnersInSeason,
                 selectedYear: action.selectedYear,
                 listByYear: [],
                 popupChampionsByYearOpen: true,
@@ -52,7 +52,7 @@ describe('Given winners in season reducer', () => {
             const action = winnersInSeasonPopup.close();
             const newState = winnersInSeasonReducer(undefined, action);
             const expected = {
-                ...initialState.champions,
+                ...initialState.winnersInSeason,
                 popupChampionsByYearOpen: false,
             };
             expect(newState).toEqual(expected);
@@ -64,7 +64,7 @@ describe('Given winners in season reducer', () => {
             const action = fetchWinnersInSeason.storeData([], 1);
             const newState = winnersInSeasonReducer(undefined, action);
             const expected = {
-                ...initialState.champions,
+                ...initialState.winnersInSeason,
                 listByYear: [],
                 selectedDriverId: 1
             };

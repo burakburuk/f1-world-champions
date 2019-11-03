@@ -4,7 +4,7 @@ import worldChampionsReducer from './worldChampionsReducer';
 import notificationReducer from './notificationReducer';
 
 const rootReducer = combineReducers({
-    champions: winnersInSeasonReducer,
+    winnersInSeason: winnersInSeasonReducer,
     worldChampions: worldChampionsReducer,
     notification: notificationReducer,
 });

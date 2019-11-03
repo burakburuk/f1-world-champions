@@ -4,7 +4,7 @@ const initialState = {
         message: '',
         open: false,
     },
-    champions: {
+    winnersInSeason: {
         popupChampionsByYearOpen: false,
         numberOfChampionsInSeason: 0,
         selectedYear: 0,
