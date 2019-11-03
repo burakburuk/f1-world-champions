@@ -1,10 +1,8 @@
 import {
     requestNumberOfChampionsInSeason,
-    completeNumberOfChampionsInSeason,
-    requestAllChampions,
-    startAllChampionsRequest,
-    completeAllChampionByYearRequest,
-    closeChampionsByYearPopup,
+    fetchNumberOfChampionsInSeason,
+    fetchWinnersInYear,
+    winnersInYearPopup,
 } from '../actions';
 import championsReducer from './championsReducer';
 import initialState from './initialState';
@@ -28,25 +26,16 @@ describe('Given championsReducer', () => {
 
     describe('when completing number of champions in a season requets', () => {
         it('should return updated champion state', () => {
-            const action = completeNumberOfChampionsInSeason(10);
+            const action = fetchNumberOfChampionsInSeason.storeData(10);
             const newState = championsReducer(undefined, action);
             const expected = { ...initialState.champions, numberOfChampionsInSeason: 10 };
             expect(newState).toEqual(expected);
         });
     });
 
-    describe('when requesting all champions in between years', () => {
-        it('should return updated champion state', () => {
-            const action = requestAllChampions(2005, 2006);
-            const newState = championsReducer(undefined, action);
-            const expected = { ...initialState.champions, isLoaded: false };
-            expect(newState).toEqual(expected);
-        });
-    });
-
     describe('when starting all champions by year request', () => {
         it('should return updated champion state', () => {
-            const action = startAllChampionsRequest(2005, 2006);
+            const action = fetchWinnersInYear.start(2005, 2006);
             const newState = championsReducer(undefined, action);
             const expected = { 
                 ...initialState.champions,
@@ -60,7 +49,7 @@ describe('Given championsReducer', () => {
     
     describe('when closing champions by year popup all champions by year request', () => {
         it('should return updated champion state', () => {
-            const action = closeChampionsByYearPopup();
+            const action = winnersInYearPopup.close();
             const newState = championsReducer(undefined, action);
             const expected = {
                 ...initialState.champions,
@@ -72,7 +61,7 @@ describe('Given championsReducer', () => {
 
     describe('when completing all champions by year request', () => {
         it('should return updated champion state', () => {
-            const action = completeAllChampionByYearRequest([], 1);
+            const action = fetchWinnersInYear.storeData([], 1);
             const newState = championsReducer(undefined, action);
             const expected = {
                 ...initialState.champions,

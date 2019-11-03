@@ -9,7 +9,7 @@ import * as actionTypes from '../constants';
 import { fetchChampionByYear } from '../services';
 import {
     fetchChampComplete,
-    showNotificationBox,
+    notification,
 } from '../actions';
 
 // handles dispatched champions get request and calls related method.
@@ -29,7 +29,7 @@ export function* fetchChamp(year) {
             throw new Error('response.MRData is not defined!!');
         }
     } catch (error) {
-        yield put(showNotificationBox({ title: 'Server Error', message: error.message }));
+        yield put(notification.show({ title: 'Server Error', message: error.message }));
     }
 }
 
@@ -46,7 +46,7 @@ export function* requestWorldChampionsByDateRange(action) {
         }
         yield take(actionTypes.COMPLETE_ALL_CHAMPIONS_REQUEST);
     } catch (error) {
-        yield put(showNotificationBox({ title: 'Server Error', message: error.message }));
+        yield put(notification.show({ title: 'Server Error', message: error.message }));
     }
 }
 

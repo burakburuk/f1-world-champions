@@ -7,7 +7,6 @@ const initialState = {
     champions: {
         popupChampionsByYearOpen: false,
         numberOfChampionsInSeason: 0,
-        isLoaded: false,
         selectedYear: 0,
         selectedDriverId: null,
         listByYear: [],

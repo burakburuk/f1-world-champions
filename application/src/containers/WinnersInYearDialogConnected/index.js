@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import {
-    closeChampionsByYearPopup,
     requestNumberOfChampionsInSeason,
+    winnersInYearPopup,
 } from '../../actions';
 import WinnersInYearDialogContainer from './WinnersInYearDialogContainer';
 
@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     requestNumberOfChampionsInSeason: e => dispatch(requestNumberOfChampionsInSeason(e)),
-    onClose: e => dispatch(closeChampionsByYearPopup(e)),
+    onClose: e => dispatch(winnersInYearPopup.close(e)),
 });
 
 const WinnersInYearDialogConnected = connect(

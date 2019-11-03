@@ -5,8 +5,6 @@ const requestNumOfChampsInSeason = (championsState, action) => updateObject(cham
 
 const completeNumOfChampsInSeason = (championsState, action) => updateObject(championsState, action);
 
-const handleAllChampsRequest = championsState => updateObject(championsState, { isLoaded: false });
-
 const startAllChampsByYearRequest = (championsState, action) => updateObject(championsState, {
     popupChampionsByYearOpen: true,
     selectedYear: action.selectedYear,
@@ -23,7 +21,6 @@ const closeChampsByYearPopup = (championsState, action) => updateObject(champion
 const championsReducer = createReducer(initialState.champions, {
     REQUEST_NUMBER_OF_CHAMPIONS_IN_SEASON: requestNumOfChampsInSeason,
     COMPLETE_NUMBER_OF_CHAMPIONS_IN_SEASON: completeNumOfChampsInSeason,
-    HANDLE_ALL_CHAMPIONS_REQUEST: handleAllChampsRequest,
     START_ALL_CHAMPIONS_BY_YEAR_REQUEST: startAllChampsByYearRequest,
     COMPLETE_ALL_CHAMPIONS_BY_YEAR_REQUEST: completeAllChampsByYearRequest,
     CLOSE_CHAMPIONS_BY_YEAR_POPUP: closeChampsByYearPopup,
