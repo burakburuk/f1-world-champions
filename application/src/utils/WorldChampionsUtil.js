@@ -46,7 +46,7 @@ const WorldChampionsUtil = {
 
         return null;
     },
-    getCarImageByTeam: (teamName) => {
+    getCarImageByTeam: function(teamName) {
         if (teamName && carImages[teamName.toUpperCase()]) {
             return carImages[teamName.toUpperCase()];
         }
