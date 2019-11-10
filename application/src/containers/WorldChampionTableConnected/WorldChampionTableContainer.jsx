@@ -37,7 +37,7 @@ class WorldChampionTableContainer extends Component {
             let championToBeAddedToList = <WorldChampionItem key={`ChampionItem-${index}`}/>;
 
             if (champion !== null) {
-                const championByYear = worldChampionsUtil.getChampionViewModel(champion);
+                const championByYear = worldChampionsUtil.getViewModel(champion);
 
                 championToBeAddedToList = (
                     <WorldChampionItem

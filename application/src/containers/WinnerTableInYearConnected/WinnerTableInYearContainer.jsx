@@ -15,10 +15,10 @@ class WinnerTableInYearContainer extends Component {
     }
 
     getRacerList = () => {
-        const { listByYear, numberOfChampionsInSeason, selectedDriverId } = this.props;
+        const { listByYear, count, selectedDriverId } = this.props;
         const itemList = [];
-        for (let i = 0; i < numberOfChampionsInSeason; i++) {
-            const racer = winnersInSeasonUtil.getChampionViewModel(listByYear[i], selectedDriverId);
+        for (let i = 0; i < count; i++) {
+            const racer = winnersInSeasonUtil.getViewModel(listByYear[i], selectedDriverId);
             if (racer) {
                 itemList.push(
                     <WinnerItemInYear
@@ -41,7 +41,7 @@ class WinnerTableInYearContainer extends Component {
 
 WinnerTableInYearContainer.propTypes = {
     listByYear: PropTypes.array.isRequired,
-    numberOfChampionsInSeason: PropTypes.number,
+    count: PropTypes.number,
     selectedDriverId: PropTypes.string,
 };
 

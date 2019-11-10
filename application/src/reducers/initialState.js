@@ -5,17 +5,17 @@ const initialState = {
         open: false,
     },
     winnersInSeason: {
-        popupChampionsByYearOpen: false,
-        numberOfChampionsInSeason: 0,
+        isDialogOpen: false,
+        count: 0,
         selectedYear: 0,
         selectedDriverId: null,
-        listByYear: [],
+        list: [],
     },
     worldChampions: {
-        list: new Map(),
-        numberOfWorldChampions: 0,
+        count: 0,
         startYear: 1,
         endYear: 0,
+        list: new Map(),
     },
 };
 

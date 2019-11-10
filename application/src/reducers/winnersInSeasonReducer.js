@@ -6,13 +6,16 @@ const requestNumOfWinnersInSeason = (championsState, action) => updateObject(cha
 const completeNumOfWinnersInSeason = (championsState, action) => updateObject(championsState, action);
 
 const startAllChampsByYearRequest = (championsState, action) => updateObject(championsState, {
-    popupChampionsByYearOpen: true,
+    isDialogOpen: true,
     selectedYear: action.selectedYear,
-    listByYear: [],
+    list: [],
 });
 
 const completeAllChampsByYearRequest = (championsState, action) => (
-    updateObject(championsState, { listByYear: action.champions, selectedDriverId: action.selectedDriverId })
+    updateObject(championsState, {
+        list: action.champions,
+        selectedDriverId: action.selectedDriverId,
+    })
 );
 
 const closeChampsByYearPopup = (championsState, action) => updateObject(championsState, action);

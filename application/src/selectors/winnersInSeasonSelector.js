@@ -1,19 +1,9 @@
 const winnersInSeasonSelector = {
-    selectedYear: function(state) {
-        return state.winnersInSeason.selectedYear;
-    },
-    selectedDriverId: function(state) {
-        return state.winnersInSeason.selectedDriverId;
-    },
-    listByYear: function(state) {
-        return state.winnersInSeason.listByYear;
-    },
-    numberOfChampionsInSeason: function(state) {
-        return state.winnersInSeason.numberOfChampionsInSeason;
-    },
-    popupChampionsByYearOpen: function(state) {
-        return state.winnersInSeason.popupChampionsByYearOpen;
-    }
-}
+    selectedYear: state => state.winnersInSeason.selectedYear,
+    selectedDriverId: state => state.winnersInSeason.selectedDriverId,
+    list: state => state.winnersInSeason.list,
+    count: state => state.winnersInSeason.count,
+    popupChampionsByYearOpen: state => state.winnersInSeason.isDialogOpen,
+};
 
 export default winnersInSeasonSelector;

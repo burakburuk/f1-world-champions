@@ -32,7 +32,7 @@ describe('Given world champions reducer', () => {
             const newState = worldChampionsReducer(undefined, action);
             const expected = {
                 ...initialState.worldChampions,
-                numberOfWorldChampions: 11,
+                count: 11,
             };
             expect(newState).toEqual(expected);
         });
@@ -49,5 +49,4 @@ describe('Given world champions reducer', () => {
             expect(newState).toEqual(expected);
         });
     });
-
 });

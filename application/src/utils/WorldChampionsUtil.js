@@ -9,35 +9,21 @@ const carImages = {
 };
 
 const worldChampionsUtil = {
-    getChampionViewModel: function(champion) {
-        const viewModel = {};
-
-        if (champion !== null) {
+    getViewModel: (champion) => {
+        if (isChampion(champion)) {
             const { winner, season, points } = champion;
+            const { Driver, Constructor } = winner;
 
-            if (winner) {
-                const { Driver, Constructor } = winner;
-                if (Driver) {
-                    if (Driver.givenName) {
-                        viewModel.driverName = `${Driver.givenName} ${Driver.familyName}`;
-                    }
-                    if (winner.Driver.driverId) {
-                        viewModel.driverId = Driver.driverId;
-                    }
-                    if (winner.Driver.nationality) {
-                        viewModel.nationality = Driver.nationality;
-                    }
-                }
-                if (Constructor) {
-                    viewModel.team = Constructor.name;
-                    if (viewModel.team) {
-                        viewModel.carImage = worldChampionsUtil.getCarImageByTeam(viewModel.team);
-                    }
-                }
-            }
+            const viewModel = {
+                driverName: `${Driver.givenName} ${Driver.familyName}`,
+                driverId: Driver.driverId,
+                nationality: Driver.nationality,
+                team: Constructor.name,
+                carImage: worldChampionsUtil.getCarImageByTeam(Constructor.name),
+            };
+
             return {
                 ...viewModel,
-                winner,
                 season,
                 points,
                 key: season,
@@ -46,12 +32,21 @@ const worldChampionsUtil = {
 
         return null;
     },
-    getCarImageByTeam: function(teamName) {
+    getCarImageByTeam: (teamName) => {
         if (teamName && carImages[teamName.toUpperCase()]) {
             return carImages[teamName.toUpperCase()];
         }
         return carImages.DEFAULT;
+    },
+};
+
+function isChampion(champion) {
+    if (!champion || !champion.winner) {
+        return false;
     }
+
+    const { Driver, Constructor } = champion.winner;
+    return Driver && Constructor;
 }
 
 export default worldChampionsUtil;

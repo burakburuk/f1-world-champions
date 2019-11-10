@@ -3,8 +3,8 @@ import WinnerTableInYearContainer from './WinnerTableInYearContainer';
 import { winnersInSeasonSelector } from '../../selectors';
 
 const mapStateToProps = state => ({
-    listByYear: winnersInSeasonSelector.listByYear(state),
-    numberOfChampionsInSeason: winnersInSeasonSelector.numberOfChampionsInSeason(state),
+    listByYear: winnersInSeasonSelector.list(state),
+    count: winnersInSeasonSelector.count(state),
     selectedDriverId: winnersInSeasonSelector.selectedDriverId(state),
 });
 

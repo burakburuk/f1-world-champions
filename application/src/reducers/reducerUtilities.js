@@ -1,8 +1,8 @@
 export const updateObject = (oldObject, newValues) => {
-    const {type, ...rest} = newValues;
+    const { type, ...rest } = newValues;
     // Encapsulate the idea of passing a new object as the first parameter
     // to Object.assign to ensure we correctly copy data instead of mutating
-    return  Object.assign({}, oldObject, rest);
+    return Object.assign({}, oldObject, rest);
 };
 
 export const updateItemInArray = (array, itemId, updateItemCallback) => {

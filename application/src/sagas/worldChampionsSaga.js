@@ -3,7 +3,6 @@ import {
     call,
     put,
     fork,
-    take,
 } from 'redux-saga/effects';
 import * as actionTypes from '../constants';
 import { fetchChampionByYear } from '../services';
@@ -44,9 +43,8 @@ export function* requestWorldChampionsByDateRange(action) {
         } else {
             throw new Error('Start and End parameters must be defined!');
         }
-        yield take(actionTypes.COMPLETE_ALL_CHAMPIONS_REQUEST);
     } catch (error) {
-        yield put(notification.show({ title: 'Server Error', message: error.message }));
+        yield put(manageNotification.show({ title: 'Server Error', message: error.message }));
     }
 }
 

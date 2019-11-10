@@ -1,19 +1,9 @@
 const worldChampionsSelector = {
-    all: function(state) {
-        return state.worldChampions;
-    },
-    list: function(state) {
-        return state.worldChampions.list;
-    },
-    numberOfWorldChampions: function(state) {
-        return state.worldChampions.numberOfWorldChampions;
-    },
-    startYear: function(state) {
-        return state.worldChampions.startYear;
-    },
-    endYear: function(state) {
-        return state.worldChampions.endYear;
-    },
+    all: state => state.worldChampions,
+    list: state => state.worldChampions.list,
+    count: state => state.worldChampions.count,
+    startYear: state => state.worldChampions.startYear,
+    endYear: state => state.worldChampions.endYear,
 };
 
 export default worldChampionsSelector;
