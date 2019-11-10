@@ -24,9 +24,9 @@ describe('Given winners in season reducer', () => {
         });
     });
 
-    describe('when completing number of champions in a season requets', () => {
-        it('should return updated champion state', () => {
-            const action = fetchNumberOfWorldChampions.storeData(10);
+    describe('when completing number of winners in a season requets', () => {
+        it('should return updated winners state', () => {
+            const action = fetchNumberOfWinnersInSeason.storeData(10);
             const newState = winnersInSeasonReducer(undefined, action);
             const expected = { ...initialState.winnersInSeason, numberOfChampionsInSeason: 10 };
             expect(newState).toEqual(expected);

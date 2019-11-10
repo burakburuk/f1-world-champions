@@ -3,12 +3,12 @@ import * as actionTypes from '../constants';
 import { fetchAllChampionsByYear } from '../services';
 import {
     fetchWinnersInSeason,
-    fetchNumberOfWorldChampions,
+    fetchNumberOfWinnersInSeason,
     manageNotification,
 } from '../actions';
 
 export default function* watchOpenChampionsByYearPopup() {
-    yield takeLatest(actionTypes.HANDLE_OPEN_CHAMPIONS_BY_YEAR_POPUP, requestAllChampionsByYear);
+    yield takeLatest(actionTypes.OPEN_WINNERS_BY_YEAR_POPUP, requestAllChampionsByYear);
 }
 
 function* requestAllChampionsByYear(action) {
@@ -20,7 +20,7 @@ function* requestAllChampionsByYear(action) {
                 throw new Error(error);
             }
             if (response.MRData) {
-                yield put(fetchNumberOfWorldChampions.storeData(response.MRData.RaceTable.Races.length));
+                yield put(fetchNumberOfWinnersInSeason.storeData(response.MRData.RaceTable.Races.length));
                 yield put(fetchWinnersInSeason.storeData(response.MRData.RaceTable.Races, action.selectedDriverId));
             }
         } else {

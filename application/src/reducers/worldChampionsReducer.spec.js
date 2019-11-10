@@ -1,7 +1,6 @@
 import {
     fetchWorldChampions,
     fetchNumberOfWorldChampions,
-    fetchWorldChampions,
 } from '../actions';
 import worldChampionsReducer from './worldChampionsReducer';
 import initialState from './initialState';

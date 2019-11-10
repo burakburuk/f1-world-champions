@@ -1,5 +1,5 @@
 import { fork, all } from 'redux-saga/effects';
-import watchOpenChampionsByYearPopup from './championsSaga';
+import watchOpenChampionsByYearPopup from './winnersInSeasonSaga';
 import { watchAllChampions } from './worldChampionsSaga';
 
 // initialize all the watchers parallel

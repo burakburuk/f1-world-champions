@@ -7,12 +7,6 @@ const fetchNumberOfWorldChampions = {
             numberOfWorldChampions: 11, // constant 2005-2015
         };
     },
-    storeData: function(numberOfChampionsInSeason) {
-        return {
-            type: actionTypes.COMPLETE_NUMBER_OF_CHAMPIONS_IN_SEASON,
-            numberOfChampionsInSeason,
-        };
-    }
 }
 
 export default fetchNumberOfWorldChampions;

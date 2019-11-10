@@ -3,7 +3,7 @@ import * as actionTypes from '../constants';
 const fetchWinnersInSeason = {
     start: function(selectedYear, selectedDriver) {
         return {
-            type: actionTypes.START_ALL_CHAMPIONS_BY_YEAR_REQUEST,
+            type: actionTypes.REQUEST_WINNERS_BY_YEAR,
             selectedYear,
             selectedDriver,
             listByYear: [],
@@ -12,7 +12,7 @@ const fetchWinnersInSeason = {
     },
     storeData: function(champions, selectedDriverId) {
         return {
-            type: actionTypes.COMPLETE_ALL_CHAMPIONS_BY_YEAR_REQUEST,
+            type: actionTypes.COMPLETE_WINNERS_BY_YEAR_REQUEST,
             champions,
             selectedDriverId,
         };

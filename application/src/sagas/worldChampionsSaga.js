@@ -14,7 +14,7 @@ import {
 
 // handles dispatched champions get request and calls related method.
 export function* watchAllChampions() {
-    yield takeLatest(actionTypes.HANDLE_ALL_CHAMPIONS_REQUEST, requestWorldChampionsByDateRange);
+    yield takeLatest(actionTypes.REQUEST_WORLD_CHAMPIONS, requestWorldChampionsByDateRange);
 }
 
 export function* fetchChamp(year) {

@@ -14,9 +14,9 @@ const fetchChampByYearComplete = (worldChampionsState, action) => {
 
 // Slice reducer
 const worldChampionsReducer = createReducer(initialState.worldChampions, {
-    HANDLE_ALL_CHAMPIONS_REQUEST: handleWorldChampsRequest,
+    REQUEST_WORLD_CHAMPIONS: handleWorldChampsRequest,
     REQUEST_NUMBER_OF_WORLD_CHAMPIONS: requestNumOfWorldChamps,
-    FETCH_CHAMPION_BY_YEAR_COMPLETE: fetchChampByYearComplete,
+    COMPLETE_WORLD_CHAMPIONS_REQUEST: fetchChampByYearComplete,
 });
 
 export default worldChampionsReducer;

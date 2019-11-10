@@ -1,9 +1,9 @@
 import { updateObject, createReducer } from './reducerUtilities';
 import initialState from './initialState';
 
-const requestNumOfChampsInSeason = (championsState, action) => updateObject(championsState, action);
+const requestNumOfWinnersInSeason = (championsState, action) => updateObject(championsState, action);
 
-const completeNumOfChampsInSeason = (championsState, action) => updateObject(championsState, action);
+const completeNumOfWinnersInSeason = (championsState, action) => updateObject(championsState, action);
 
 const startAllChampsByYearRequest = (championsState, action) => updateObject(championsState, {
     popupChampionsByYearOpen: true,
@@ -19,11 +19,11 @@ const closeChampsByYearPopup = (championsState, action) => updateObject(champion
 
 // Slice reducer
 const winnersInSeasonReducer = createReducer(initialState.winnersInSeason, {
-    REQUEST_NUMBER_OF_CHAMPIONS_IN_SEASON: requestNumOfChampsInSeason,
-    COMPLETE_NUMBER_OF_CHAMPIONS_IN_SEASON: completeNumOfChampsInSeason,
-    START_ALL_CHAMPIONS_BY_YEAR_REQUEST: startAllChampsByYearRequest,
-    COMPLETE_ALL_CHAMPIONS_BY_YEAR_REQUEST: completeAllChampsByYearRequest,
-    CLOSE_CHAMPIONS_BY_YEAR_POPUP: closeChampsByYearPopup,
+    REQUEST_NUMBER_OF_WINNERS_IN_SEASON: requestNumOfWinnersInSeason,
+    COMPLETE_NUMBER_OF_WINNERS_IN_SEASON_REQUEST: completeNumOfWinnersInSeason,
+    REQUEST_WINNERS_BY_YEAR: startAllChampsByYearRequest,
+    COMPLETE_WINNERS_BY_YEAR_REQUEST: completeAllChampsByYearRequest,
+    CLOSE_WINNERS_BY_YEAR_POPUP: closeChampsByYearPopup,
 });
 
 export default winnersInSeasonReducer;
