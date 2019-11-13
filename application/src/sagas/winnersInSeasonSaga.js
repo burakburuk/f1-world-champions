@@ -11,11 +11,11 @@ export default function* watchOpenChampionsByYearPopup() {
     yield takeLatest(actionTypes.OPEN_WINNERS_BY_YEAR_POPUP, requestAllChampionsByYear);
 }
 
-function* requestAllChampionsByYear(action) {
+export function* requestAllChampionsByYear(action) {
     try {
         if (action.year) {
             yield put(fetchWinnersInSeason.start(action.year));
-            const { response, error } = yield call(() => fetchAllChampionsByYear(action.year));
+            const { response, error } = yield call(fetchAllChampionsByYear, action.year);
             if (error) {
                 throw new Error(error);
             }
